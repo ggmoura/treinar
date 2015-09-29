@@ -10,6 +10,8 @@ public class AtividadeLista {
 		
 	      lista.add("Diego");
 	      lista.add("Cleide");
+	      lista.add("Cleide");
+	      lista.add("Adegir");
 	      lista.add("Adegir");
 	      
 	      System.out.println("Listagem");
