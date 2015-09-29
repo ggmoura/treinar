@@ -18,7 +18,6 @@ public class AtividadeEnum {
 			System.out.println("Opção Inválida...");
 		}
 		
-		
 		sc.close();
 		
 		
