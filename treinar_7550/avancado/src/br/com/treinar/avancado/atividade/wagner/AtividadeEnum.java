@@ -1,4 +1,4 @@
-package br.com.treinar.avancado.wagner;
+package br.com.treinar.avancado.atividade.wagner;
 
 import java.util.Scanner;
 
