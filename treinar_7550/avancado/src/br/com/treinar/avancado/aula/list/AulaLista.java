@@ -1,6 +1,5 @@
 package br.com.treinar.avancado.aula.list;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
