@@ -5,6 +5,8 @@ public class Pessoa {
 	private String nome;
 
 	private Sexo sexo;
+	
+	private Long cpf;
 
 	public Pessoa(String nome, Sexo sexo) {
 		this(nome);
@@ -37,4 +39,12 @@ public class Pessoa {
 		this.sexo = sexo;
 	}
 
+	public Long getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(Long cpf) {
+		this.cpf = cpf;
+	}
+	
 }
