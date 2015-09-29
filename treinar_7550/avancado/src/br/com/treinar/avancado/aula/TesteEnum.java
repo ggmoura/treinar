@@ -30,9 +30,10 @@ public class TesteEnum {
 		Scanner sc = new Scanner(System.in);
 		String sexoStr = sc.nextLine();
 		
-		Sexo escolhido = Sexo.valueOf(sexoStr);
+		Sexo escolhido = Sexo.valueOf(sexoStr.toUpperCase());
 		
-		System.out.println(escolhido.getDescricao() + " posicao enum " + escolhido.ordinal());
+		System.out.println(escolhido.getDescricao() + " posicao enum " 
+									+ escolhido.ordinal());
 		sc.close();
 		
 	}
