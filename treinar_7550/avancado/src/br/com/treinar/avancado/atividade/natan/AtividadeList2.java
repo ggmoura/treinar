@@ -33,6 +33,8 @@ public class AtividadeList2 {
 
 		sala.setPessoas(alunos);
 
+		
+		
 	}
 
 }
