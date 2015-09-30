@@ -57,4 +57,9 @@ public class Pessoa implements Comparable<Pessoa> {
 		return cpf.compareTo(o.cpf);
 	}
 	
+	@Override
+	public String toString() {
+		return this.nome + " " + this.cpf + " " + this.sexo.getDescricao();
+	}
+	
 }
