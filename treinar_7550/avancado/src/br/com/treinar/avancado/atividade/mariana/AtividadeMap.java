@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class AtividadeMap {
 
-	public static Map<Character, List<String>> recuperarMapaNomes(String[] args) {
+	public static Map<Character, List<String>> recuperarMapaNomes() {
 		String nome = null;
 		Scanner leitor = new Scanner(System.in);
 		Map<Character, List<String>> mapa = new HashMap<>();
