@@ -41,7 +41,7 @@ public class AtividadeOrdenacao {
 		});
 		
 		for (Banheiro banheiro2 : banheiro) {
-			System.out.println(banheiro2.getPessoa().getNome() + " "+ banheiro2.getSexo());
+			System.out.println(banheiro2.getPessoa().getNome() + " "+ banheiro2.getSexo().getDescricao());
 		}
 		
 
