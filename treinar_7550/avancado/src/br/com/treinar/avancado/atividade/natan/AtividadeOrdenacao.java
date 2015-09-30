@@ -1,6 +1,9 @@
 package br.com.treinar.avancado.atividade.natan;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import br.com.treinar.avancado.Banheiro;
 import br.com.treinar.avancado.Pessoa;
@@ -17,14 +20,14 @@ public class AtividadeOrdenacao {
 		b1.setSexo(Sexo.M);
 		
 		Banheiro b2 = new Banheiro();
-		b1.setPapel("Neve");
-		b1.setPessoa(new Pessoa("Neimar", Sexo.M, 10020030040l));
-		b1.setSexo(Sexo.M);
+		b2.setPapel("Neve");
+		b2.setPessoa(new Pessoa("Neimar", Sexo.M, 10020030040l));
+		b2.setSexo(Sexo.M);
 		
 		Banheiro b3 = new Banheiro();
-		b1.setPapel("Neve");
-		b1.setPessoa(new Pessoa("Isabela", Sexo.F, 10020030040l));
-		b1.setSexo(Sexo.M);
+		b3.setPapel("Neve");
+		b3.setPessoa(new Pessoa("Isabela", Sexo.F, 10020030040l));
+		b3.setSexo(Sexo.F);
 		
 		banheiro.add(b1);
 		banheiro.add(b2);
@@ -37,6 +40,9 @@ public class AtividadeOrdenacao {
 			}
 		});
 		
+		for (Banheiro banheiro2 : banheiro) {
+			System.out.println(banheiro2.getPessoa().getNome() + " "+ banheiro2.getSexo());
+		}
 		
 
 	}
