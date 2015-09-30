@@ -1,6 +1,6 @@
 package br.com.treinar.avancado;
 
-public class Banheiro {
+public class Banheiro implements Comparable<Banheiro> {
 
 	private String papel;
 	private Sexo sexo;
@@ -38,5 +38,8 @@ public class Banheiro {
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
-
+	@Override
+	public int compareTo(Banheiro o) {
+		return sexo.ordinal() - o.sexo.ordinal();
+	}
 }
