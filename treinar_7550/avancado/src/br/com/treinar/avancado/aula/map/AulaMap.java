@@ -60,7 +60,12 @@ public class AulaMap {
 		for (Entry<String, Pessoa> entry : entrySet) {
 			System.out.println(entry.getKey() + " - " + entry.getValue().getSexo());
 		}
+	
 	}
+	
+	
+	
+	
 	
 	
 	
