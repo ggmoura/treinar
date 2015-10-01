@@ -25,7 +25,6 @@ public class TesteExcecao {
 			//sc.close();
 		} catch (InputMismatchException | ArrayIndexOutOfBoundsException e) {
 			System.out.println("deu erro de conversao");
-			//sc.close();
 		} catch (ParseException e) {
 			System.out.println("erro de data");
 		} catch (Exception e) {
