@@ -30,7 +30,7 @@ public class AtividadeGravaArquivo {
 		
 		for (Pessoa pessoa : atividadeIO) {
 			
-			bw.write(pessoa.getNome()+";"+pessoa.getSexo().getDescricao());
+			bw.write(pessoa.getNome()+";"+pessoa.getSexo().ordinal());
 			bw.newLine();
 			
 		
