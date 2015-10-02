@@ -34,7 +34,7 @@ public class AtividadeGravaArquivo {
 		BufferedWriter bw = new BufferedWriter(osw);
 
 		for (Pessoa pessoa : alunos) {
-			bw.write(pessoa.getNome() + ";" + pessoa.getCpf() + ";" + pessoa.getSexo().getDescricao() + ";");
+			bw.write(pessoa.getNome() + ";" + pessoa.getCpf() + ";" + pessoa.getSexo().ordinal() + ";");
 			bw.newLine();
 		}
 

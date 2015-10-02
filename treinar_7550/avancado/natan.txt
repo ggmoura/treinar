@@ -1,3 +1,3 @@
-Natan;10677322224;Masculino;
-isabela;10020030040;Feminino;
-Marco;10020030060;Masculino;
+Natan;10677322224;1;
+isabela;10020030040;0;
+Marco;10020030060;1;
