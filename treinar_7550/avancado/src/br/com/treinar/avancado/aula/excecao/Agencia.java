@@ -11,6 +11,7 @@ public class Agencia {
 		Pessoa cliente = new Pessoa("Gleidson", Sexo.M);
 		Conta c = new Conta();
 		c.setCliente(cliente);
+		c.setLimiteCredito(10000d);
 		c.setSaldo(10000d);
 		try {
 			cx.sacar(c, 50000d);

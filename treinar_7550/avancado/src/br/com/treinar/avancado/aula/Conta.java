@@ -1,10 +1,17 @@
 package br.com.treinar.avancado.aula;
 
+import java.io.Serializable;
+
 import br.com.treinar.avancado.Pessoa;
 import br.com.treinar.avancado.aula.excecao.SaldoInsuficienteException;
 
-public class Conta {
+public class Conta implements Serializable {
 
+	/**
+	 * facilita a serializacao do objeto 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private Double saldo;
 	private Pessoa cliente;
 	private Double limiteCredito;
@@ -19,7 +26,6 @@ public class Conta {
 	 * @throws SaldoInsuficienteException - caso nao haja saldo suficiente levanta 
 	 * 										<code>SaldoInsuficienteException</code>
 	 */
-	@Deprecated
 	public void sacar(Double valor) throws SaldoInsuficienteException {
 		if (valor <= saldo) {
 			saldo -= valor;
