@@ -1,4 +1,4 @@
-package cruz;
+package br.com.treinar.avancado.atividade.cruz;
 
 import java.util.Scanner;
 

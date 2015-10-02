@@ -1,4 +1,4 @@
-package cruz;
+package br.com.treinar.avancado.atividade.cruz;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
