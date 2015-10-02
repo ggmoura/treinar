@@ -7,7 +7,7 @@ import java.util.Date;
 public class AulaData {
 
 	public static void main(String[] args) {
-		Date d = new Date(1443655731773l);
+		Date d = new Date(1443655731173l);
 		System.out.println(d.getTime());
 		
 		System.out.println(d);
