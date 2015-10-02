@@ -61,7 +61,5 @@ public class OrdenaCollection {
 		
 		System.out.println(afilhadosPessoa);
 		
-		
 	}
-	
 }
