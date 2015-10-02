@@ -17,7 +17,7 @@ public class AtividadeExcecao {
 			System.out.print("Digite sua idade: ");
 			idade = leitor.nextInt();
 
-			System.out.println(nome +" "+ idade);
+			System.out.println(nome + " " + idade);
 
 		} catch (InputMismatchException e) {
 			System.out.println("dados inválidos");
