@@ -25,6 +25,5 @@ public class Agencia {
 	private static void oferecerEmprestimo() {
 		System.out.println();
 	}
-	
-	
+
 }
