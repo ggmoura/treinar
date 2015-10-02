@@ -31,11 +31,8 @@ public class AtividadeGravaArquivo {
 		OutputStreamWriter osw = new OutputStreamWriter(os);
 		BufferedWriter bw = new BufferedWriter(osw);
 
-		bw.write("Lista de pessoas");
-		bw.newLine();
-
 		for (Pessoa pessoa : listaPessoas) {
-			bw.write(pessoa.getNome() + ";" + pessoa.getCpf() + ";" + pessoa.getSexo().ordinal() + ";");
+			bw.write(pessoa.getNome() + ";" + pessoa.getCpf().toString() + ";" + pessoa.getSexo().ordinal() + ";");
 			bw.newLine();
 		}
 

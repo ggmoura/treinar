@@ -1,4 +1,3 @@
-Lista de pessoas
 Diego;4;1;
 Priscila;3;0;
 Rodrigo;2;1;
