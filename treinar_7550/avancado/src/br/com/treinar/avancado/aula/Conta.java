@@ -1,14 +1,31 @@
 package br.com.treinar.avancado.aula;
 
+import java.io.Serializable;
+
 import br.com.treinar.avancado.Pessoa;
 import br.com.treinar.avancado.aula.excecao.SaldoInsuficienteException;
 
-public class Conta {
+public class Conta implements Serializable {
 
+	/**
+	 * facilita a serializacao do objeto 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private Double saldo;
 	private Pessoa cliente;
 	private Double limiteCredito;
 
+	
+	/**
+	 * 
+	 * Este metodo serve para efetuar saques na conta do cliente
+	 * 
+	 * @param valor valor a ser sacado da conta do correntista
+	 *
+	 * @throws SaldoInsuficienteException - caso nao haja saldo suficiente levanta 
+	 * 										<code>SaldoInsuficienteException</code>
+	 */
 	public void sacar(Double valor) throws SaldoInsuficienteException {
 		if (valor <= saldo) {
 			saldo -= valor;
