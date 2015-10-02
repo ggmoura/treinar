@@ -1,5 +1,7 @@
 package br.com.treinar.avancado;
 
+import java.util.Date;
+
 public class Pessoa implements Comparable<Pessoa> {
 
 	private String nome;
@@ -7,6 +9,8 @@ public class Pessoa implements Comparable<Pessoa> {
 	private Sexo sexo;
 	
 	private Long cpf;
+	
+	private Date dataNascimento;
 
 	public Pessoa(String nome, Sexo sexo) {
 		this(nome);
@@ -52,6 +56,12 @@ public class Pessoa implements Comparable<Pessoa> {
 		this.cpf = cpf;
 	}
 	
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
 	@Override
 	public int compareTo(Pessoa o) {
 		return cpf.compareTo(o.cpf);

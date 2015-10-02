@@ -1,8 +1,11 @@
 package br.com.treinar.avancado.aula;
 
+import br.com.treinar.avancado.Sexo;
+
 public class TipoDado {
 
 	public static void main(String[] args) {
+		
 		Integer a = 1000;
 		Integer b = 1000;
 		
@@ -16,7 +19,14 @@ public class TipoDado {
 		System.out.println(d == e);
 		System.out.println(e.equals(e));
 		
+		//Sexo[] sexos = Sexo.values();
+		//System.out.println(sexos[1].getDescricao());
 		
+		try {
+			System.out.println(Sexo.recuperarSexoPorOrdinal(1).getDescricao());
+		} catch (IllegalArgumentException e2) {
+			
+		}
 		
 		
 		
