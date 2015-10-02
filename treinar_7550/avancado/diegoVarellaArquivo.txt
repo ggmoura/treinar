@@ -1,5 +1,5 @@
-Lista de Pessoas
-Diego 1 Masculino
-Prscila 4 Feminino
-Rodrigo 2 Masculino
-Bianca 3 Feminino
+Lista de pessoas
+Diego;4;1;
+Priscila;3;0;
+Rodrigo;2;1;
+Bianca;1;0;
