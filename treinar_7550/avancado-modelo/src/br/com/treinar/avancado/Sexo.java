@@ -1,5 +1,6 @@
 package br.com.treinar.avancado;
 
+
 public enum Sexo {
 	
 	F("Feminino"),

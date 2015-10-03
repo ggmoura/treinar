@@ -1,5 +1,6 @@
 package br.com.treinar.avancado;
 
+
 import java.util.Scanner;
 
 public class Portaria {

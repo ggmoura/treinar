@@ -1,5 +1,6 @@
 package br.com.treinar.avancado;
 
+
 public class Banheiro implements Comparable<Banheiro> {
 
 	private String papel;
