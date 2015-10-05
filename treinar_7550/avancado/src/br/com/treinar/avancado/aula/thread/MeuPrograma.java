@@ -1,7 +1,5 @@
-package br.com.treinar.avancado.aula.date;
+package br.com.treinar.avancado.aula.thread;
 
-import br.com.treinar.avancado.aula.thread.BarraDeProgresso;
-import br.com.treinar.avancado.aula.thread.GeraPDF;
 
 public class MeuPrograma {
 	public static void main(String[] args) {
