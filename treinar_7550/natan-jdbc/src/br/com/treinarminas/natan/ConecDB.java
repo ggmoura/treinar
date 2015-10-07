@@ -14,6 +14,4 @@ public class ConecDB {
 			System.out.println("conectou");
 		}
 	}
-	
-	
 }
