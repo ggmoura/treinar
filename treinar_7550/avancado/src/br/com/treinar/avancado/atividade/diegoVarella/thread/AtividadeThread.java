@@ -14,7 +14,7 @@ public class AtividadeThread {
 		Thread threadNome2 = new Thread(nome2);
 		threadNome2.start();
 
-		System.out.println("Fim..");
+		System.out.println("Fim...");
 
 	}
 
