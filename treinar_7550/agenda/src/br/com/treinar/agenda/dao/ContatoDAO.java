@@ -14,7 +14,7 @@ import br.com.treinar.agenda.modelo.Contato;
 import br.com.treinar.agenda.util.AgendaException;
 import br.com.treinar.agenda.util.ConnectionFactory;
 
-public class ContatoDAO {
+public class ContatoDAO implements IBaseDAO<Contato, Long> {
 
 	private ConnectionFactory instance;
 
@@ -22,8 +22,7 @@ public class ContatoDAO {
 		instance = ConnectionFactory.getInstance();
 	}
 
-	public void gravarContato(Contato contato) throws AgendaException {
-
+	public void gravar(Contato contato) throws AgendaException {
 		try {
 			Connection con = instance.getConnection();
 
@@ -56,7 +55,7 @@ public class ContatoDAO {
 		}
 	}
 
-	public List<Contato> recuperarContatos() throws AgendaException {
+	public List<Contato> recuperarLista() throws AgendaException {
 		PreparedStatement stmt;
 		ResultSet rs;
 		List<Contato> contatos = null;
@@ -117,6 +116,39 @@ public class ContatoDAO {
 
 			stmt.execute();
 			stmt.close();
+		} catch (SQLException e) {
+			throw new AgendaException();
+		}
+	}
+
+	@Override
+	public Contato recuperarPorId(Long id) throws AgendaException {
+		PreparedStatement stmt;
+		ResultSet rs;
+		try {
+			Connection con = instance.getConnection();
+			stmt = con.prepareStatement("select * from contato c where id = ?");
+			stmt.setLong(1, id);
+			rs = stmt.executeQuery();
+			Contato contato = null;
+			if (rs.next()) {
+
+				// criando o objeto Contato
+				contato = new Contato();
+				contato.setId(rs.getLong("id"));
+				contato.setNome(rs.getString("nome"));
+				contato.setEmail(rs.getString("email"));
+				contato.setTelefone(rs.getString("telefone"));
+
+				// montando a data através do Calendar
+				Calendar data = Calendar.getInstance();
+				data.setTime(rs.getDate("dataNascimento"));
+				contato.setDataNascimento(data.getTime());
+
+			}
+			rs.close();
+			stmt.close();
+			return contato;
 		} catch (SQLException e) {
 			throw new AgendaException();
 		}

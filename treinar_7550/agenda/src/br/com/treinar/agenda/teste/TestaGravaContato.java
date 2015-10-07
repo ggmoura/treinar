@@ -23,7 +23,7 @@ public class TestaGravaContato {
 		
 		ContatoDAO dao = new ContatoDAO();
 		try {
-			dao.gravarContato(c);
+			dao.gravar(c);
 			System.out.println("Contato [id:" + c.getId()+ "] gravado com sucesso!!!");
 		} catch (AgendaException e) {
 			System.err.println("Erro ao gravar o contato...");
