@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class PrimeiroServlet
  */
-@WebServlet(urlPatterns={ "/olamundo", "/PrimeiroServlet" }, loadOnStartup=1)
+@WebServlet(urlPatterns={ "/olamundo", "/PrimeiroServlet", "*.treinar" }, loadOnStartup=1)
 public class PrimeiroServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
