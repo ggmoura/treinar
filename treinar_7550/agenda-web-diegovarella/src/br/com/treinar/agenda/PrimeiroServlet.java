@@ -1,7 +1,9 @@
 package br.com.treinar.agenda;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,15 +23,32 @@ public class PrimeiroServlet extends HttpServlet {
 	 */
 	public PrimeiroServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void service(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		out.print("<h1>Olá Java Web...</h1>");
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nome = request.getParameter("nome");
+		String data = request.getParameter("data");
+		
+		System.out.println(nome);
+		
+
+		DateFormat df = new SimpleDateFormat("dd/MM/yyy");
+		
+		try {
+			
+			Date da = df.parse(data);
+			System.out.println(df.format(data));
+			
+		} catch (Exception e) {
+			
+			System.err.println("Não foi possível converter a data informada.");
+
+		}
+
+
 	}
 
 }
