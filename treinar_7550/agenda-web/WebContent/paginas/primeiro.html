@@ -6,15 +6,24 @@
 </head>
 <body>
 
-	<form action="submit.treinar">
-	
-		
+	<h1>Olá html...</h1>
+	<form action="submit.treinar" method="get">	
+		<span>Nome:</span>
+		<input type="text" id="nome" name="nome">
 		<input type="submit" value="Enviar">
 	
+		<fieldset data-role="controlgroup" id="checkboxes-1">
+			<legend></legend>
+			<input name="materia" id="checkbox-1a" type="checkbox" value="java"/>
+			<label for="checkbox-1a">Java</label>
+			<input name="materia" id="checkbox-1b" type="checkbox" value="android"/>
+			<label for="checkbox-1b">Android</label>
+			<input name="materia" id="checkbox-1c" type="checkbox" value="angular_js"/>
+			<label for="checkbox-1c">Angular JS</label>
+		</fieldset>
 	
 	</form>
 
-	<h1>Olá html...</h1>
 
 </body>
 </html>
