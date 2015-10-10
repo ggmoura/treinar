@@ -17,7 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns={ "/olamundo", "/PrimeiroServlet", "*.treinar" }, loadOnStartup=1)
 public class PrimeiroServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
+	public Integer contador;
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -83,6 +85,7 @@ public class PrimeiroServlet extends HttpServlet {
     
     @Override
     public void init() throws ServletException {
+    	contador = 0;
     	Logger.getLogger("PrimeiroServlet").info("Inicializando servlet PrimeiroServlet.java");
     }
     
