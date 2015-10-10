@@ -37,6 +37,7 @@ public class SevletSessao extends HttpServlet {
 		
 		
 		HttpSession session = request.getSession();
+		
 		Object objSessao = request.getSession().getAttribute("contador");
 		
 		Integer contador = objSessao != null ? (Integer) objSessao : 0;
