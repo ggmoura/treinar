@@ -1,4 +1,4 @@
-package br.com.treinar.agenda.util;
+package br.com.treinar.util;
 
 public class AgendaException extends Exception {
 

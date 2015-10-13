@@ -5,6 +5,13 @@ import javax.servlet.http.HttpServletResponse;
 
 public interface IComando {
 
-	void executar(HttpServletRequest request, HttpServletResponse response);
+	/**
+	 * Executa um comando e retora a pagina que devera ser atingida
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws AgendaException
+	 */
+	String executar(HttpServletRequest request, HttpServletResponse response) throws AgendaException;
 	
 }
