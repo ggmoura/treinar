@@ -2,6 +2,7 @@ package br.com.treinar.util;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,17 +29,22 @@ public class ServletControle extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//br.com.treinar.comando.CriaContato
-		
 		String comandoStr = request.getParameter("comando");
-		
-		try {
-			IComando comando = (IComando) Class.forName(comandoStr).newInstance();
-			comando.executar(request, response);
-		
-		} catch (Exception e) {
-			//TODO - implementar regra de Exception
+		RequestDispatcher requestDispatcher = null;
+		if (comandoStr != null && !comandoStr.equals("")) {
+			try {
+				IComando comando = (IComando) Class.forName(comandoStr).newInstance();
+				String navegacao = comando.executar(request, response);
+				requestDispatcher = request.getRequestDispatcher(navegacao);
+			} catch (AgendaException e) {
+				//
+			} catch (Exception e) {
+				
+			}			
+		} else {
+			requestDispatcher = request.getRequestDispatcher("/index.html");
 		}
+		requestDispatcher.forward(request, response);
 	}
 
 }

@@ -52,4 +52,10 @@ public class Telefone implements Serializable {
 		this.tipo = tipo;
 	}
 
+	@Override
+	public String toString() {
+		return ddi + "" + ddd + "" + numero;
+	}
+	
+
 }
