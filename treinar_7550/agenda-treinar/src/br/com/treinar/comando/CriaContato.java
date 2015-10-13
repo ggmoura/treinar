@@ -11,8 +11,6 @@ public class CriaContato implements IComando {
 	public void executar(HttpServletRequest request,
 			HttpServletResponse response) {
 		
-		
-
 	}
 
 }
