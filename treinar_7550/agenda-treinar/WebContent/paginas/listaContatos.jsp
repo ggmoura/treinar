@@ -23,6 +23,7 @@
 				<th>Nome Contato</th>
 				<th data-priority="1">Sexo</th>
 				<th data-priority="2">Telefone</th>
+				<th data-priority="2">Tipo</th>
 				<th data-priority="3">Endereço</th>
 				<th data-priority="4">E-Mail</th>
 			</tr>
@@ -31,8 +32,9 @@
 			<c:forEach var="c" items="${contatos}">
 				<tr>
 					<td>${c.pessoa.nome}</td>
-					<td>${c.pessoa.sexo.descricao}</td>
+					<td>${c.pessoa.sexo.descricao}</td>					
 					<td>${c.telefone}</td>
+					<td>${c.telefone.tipo.descricao}</td>
 					<td>${c.endereco}</td>
 					<td>${c.email}</td>
 				</tr>

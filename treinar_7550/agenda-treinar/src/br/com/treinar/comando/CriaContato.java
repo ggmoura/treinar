@@ -7,6 +7,7 @@ import br.com.treinar.modelo.Contato;
 import br.com.treinar.modelo.Pessoa;
 import br.com.treinar.modelo.Sexo;
 import br.com.treinar.modelo.Telefone;
+import br.com.treinar.modelo.TipoTelefone;
 import br.com.treinar.util.AgendaException;
 import br.com.treinar.util.DataBase;
 import br.com.treinar.util.IComando;
@@ -51,6 +52,15 @@ public class CriaContato implements IComando {
 			camposPendentes.append("E-mail ");
 			possuiErro = Boolean.TRUE;
 		}
+		String tipoTelefoneStr = request.getParameter("tipoTelefone");
+		TipoTelefone tipoTelefone = null;
+		if (tipoTelefoneStr == null  || tipoTelefoneStr.equals("") || tipoTelefoneStr.equals("-1")) {
+			camposPendentes.append("Tipo Telefone ");
+			possuiErro = Boolean.TRUE;
+		} else {
+			tipoTelefone = TipoTelefone.valueOf(tipoTelefoneStr);
+		}
+		
 		if (possuiErro) {
 			ex = new AgendaException();
 			ex.setErro(camposPendentes.toString());
@@ -62,6 +72,7 @@ public class CriaContato implements IComando {
 			contato.setEndereco(endereco);
 			contato.setEmail(email);
 			contato.setTelefone(new Telefone());
+			contato.getTelefone().setTipo(tipoTelefone);
 			contato.getTelefone().setDdi(Integer.parseInt(telefone.substring(0,2)));
 			contato.getTelefone().setDdd(Integer.parseInt(telefone.substring(2,4)));
 			contato.getTelefone().setNumero(Integer.parseInt(telefone.substring(4,12)));

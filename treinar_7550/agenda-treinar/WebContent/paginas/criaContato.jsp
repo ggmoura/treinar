@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="treinar" uri="../WEB-INF/treinar.tld"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,11 +20,20 @@
 			<input name="nome" id="nome" data-clear-btn="true" value="" placeholder="Nome do contato" type="text"/>
 		</div>
 		
-		<treinar:sexo id="sexoTag" nome="sexoTag" />
+		<treinar:sexo id="sexo" nome="sexo" />
 		
 		<div class="ui-field-contain">
 			<label for="telefone">Telefone:</label>
 			<input name="telefone" id="telefone" data-clear-btn="true" value="" type="text"/>
+		</div>
+		<div class="ui-field-contain">
+			<label for="select-1">Tipo Telefone:</label>
+			<select name="tipoTelefone" id="tipoTelefone">
+				<option value="-1">Selecione</option>
+				<c:forEach items="${tiposTelefone}" var="tipo">
+					<option value="${tipo}">${tipo.descricao}</option>
+				</c:forEach>
+			</select>
 		</div>
 		<div class="ui-field-contain">
 			<label for="endereco">Endereço:</label>
