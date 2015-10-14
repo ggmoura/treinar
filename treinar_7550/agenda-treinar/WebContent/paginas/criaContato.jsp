@@ -11,7 +11,7 @@
 <title>Cadastrar Contato</title>
 </head>
 <body>
-	<form action="cmd.agenda" id="form-1" method="post">
+	<form action="cmd.agenda" id="form-1">
 		<input type="hidden" name="comando" value="br.com.treinar.comando.CriaContato">
 		<div class="ui-field-contain">
 			<label for="nome">Nome:</label>
@@ -19,7 +19,7 @@
 		</div>
 		<div class="ui-field-contain">
 			<label for="nome">Sexo</label>
-			<fieldset id="radio-1">
+			<fieldset data-role="" id="radio-1">
 				<input name="sexo" id="sexoFeminino" value="0" type="radio"/>
 				<label for="sexoFeminino">Feminino</label>
 				<input name="sexo" id="sexoMasculino" value="1" type="radio"/>
@@ -28,7 +28,7 @@
 		</div>
 		<div class="ui-field-contain">
 			<label for="telefone">Telefone:</label>
-			<input name="telefone" id="telefone" data-clear-btn="true" value="" placeholder="Telefone" type="text"/>
+			<input name="telefone" id="telefone" data-clear-btn="true" value="" type="text"/>
 		</div>
 		<div class="ui-field-contain">
 			<label for="endereco">Endereço:</label>
@@ -36,7 +36,7 @@
 		</div>
 		<div class="ui-field-contain">
 			<label for="email">Email:</label>
-			<input name="email" id="email" data-clear-btn="true" value="" placeholder="E-Mail" type="text"/>
+			<input name="email" id="email" data-clear-btn="true" value="" placeholder="Endereço" type="text"/>
 		</div>
 		<input type="submit" id="gravar" class="ui-btn ui-corner-all" value="Gravar">
 	</form>
