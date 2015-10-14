@@ -38,7 +38,7 @@ public class ServletControle extends HttpServlet {
 			requestDispatcher.forward(request, response);
 			
 		} catch (AgendaException e) {
-			//
+			
 		} catch (Exception e) {
 			
 		}
