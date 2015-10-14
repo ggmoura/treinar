@@ -43,5 +43,4 @@ public class ServletControle extends HttpServlet {
 			
 		}
 	}
-
 }
