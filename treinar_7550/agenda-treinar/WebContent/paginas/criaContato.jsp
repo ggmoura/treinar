@@ -18,7 +18,7 @@
 			<input name="nome" id="nome" data-clear-btn="true" value="" placeholder="Nome do contato" autofocus="true" type="text"/>
 		</div>
 		<div class="ui-field-contain">
-			<label for="nome">Sexo</label>
+			<label for="nome">Sexo:</label>
 			<fieldset data-role="" id="radio-1">
 				<input name="sexo" id="sexoFeminino" value="0" type="radio"/>
 				<label for="sexoFeminino">Feminino</label>
