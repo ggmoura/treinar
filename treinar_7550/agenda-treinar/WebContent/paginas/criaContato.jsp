@@ -19,12 +19,14 @@
 		</div>
 		<div class="ui-field-contain">
 			<label for="nome">Sexo</label>
-			<fieldset data-role="" id="radio-1">
-				<input name="sexo" id="sexoFeminino" value="0" type="radio"/>
-				<label for="sexoFeminino">Feminino</label>
-				<input name="sexo" id="sexoMasculino" value="1" type="radio"/>
-				<label for="sexoMasculino">Masculino</label>
-			</fieldset>
+			<div>
+				<fieldset data-role="" id="radio-1">
+					<input name="sexo" id="" value="0" type="radio"/>
+					<label for="radio-choice-1b">Feminino</label>
+					<input name="sexo" id="" value="1" type="radio"/>
+					<label for="sexo">Masculino</label>
+				</fieldset>
+			</div>
 		</div>
 		<div class="ui-field-contain">
 			<label for="telefone">Telefone:</label>
