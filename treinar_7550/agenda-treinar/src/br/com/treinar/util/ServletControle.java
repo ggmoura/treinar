@@ -29,7 +29,6 @@ public class ServletControle extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
 		String comandoStr = request.getParameter("comando");
 		RequestDispatcher requestDispatcher = null;
 		if (comandoStr != null && !comandoStr.equals("")) {
@@ -46,7 +45,6 @@ public class ServletControle extends HttpServlet {
 			requestDispatcher = request.getRequestDispatcher("/index.html");
 		}
 		requestDispatcher.forward(request, response);
-	
 	}
 
 }

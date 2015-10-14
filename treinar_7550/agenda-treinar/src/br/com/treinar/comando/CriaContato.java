@@ -66,7 +66,8 @@ public class CriaContato implements IComando {
 			contato.getTelefone().setDdd(Integer.parseInt(telefone.substring(2,4)));
 			contato.getTelefone().setNumero(Integer.parseInt(telefone.substring(4,12)));
 			
-			DataBase.getInstance().adicionarContato(contato);
+			DataBase instance = DataBase.getInstance();
+			instance.adicionarContato(contato);
 			
 			
 			ListaContato lista = new ListaContato();

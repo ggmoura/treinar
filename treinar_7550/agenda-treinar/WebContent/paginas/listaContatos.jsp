@@ -1,5 +1,6 @@
-<%@page import="br.com.treinar.modelo.Contato"%>
-<%@page import="java.util.List"%>
+<%@ page import="br.com.treinar.modelo.Contato"%>
+<%@ page import="java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -14,12 +15,12 @@
 </head>
 <body>
 
-	<form action="cmd.agenda">
+	<form action="cmd.agenda" method="post">
 		
 		<table data-role="table" id="contatos" class="ui-responsive">
 		<thead>
 			<tr>
-				<th>Nome</th>
+				<th>Nome Contato</th>
 				<th data-priority="1">Sexo</th>
 				<th data-priority="2">Telefone</th>
 				<th data-priority="3">Endereço</th>
@@ -27,32 +28,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			<%
-				if(request.getAttribute("contatos") != null) {
-					List<Contato> contatos = (List<Contato>) request.getAttribute("contatos");
-					for(Contato contato: contatos) {
-						out.write("<tr>");
-						out.write("<td>");
-						out.write(contato.getPessoa().getNome());
-						out.write("</td>");
-						out.write("<td>");
-						out.write(contato.getPessoa().getSexo().getDescricao());
-						out.write("</td>");
-						out.write("<td>");
-						out.write(contato.getTelefone().toString());
-						out.write("</td>");
-						out.write("<td>");
-						out.write(contato.getEndereco());
-						out.write("</td>");
-						out.write("<td>");
-						out.write(contato.getEmail());
-						out.write("</td>");
-						
-						
-					}
-					
-				}
-			%>
+			<c:forEach var="c" items="${contatos}">
+				<tr>
+					<td>${c.pessoa.nome}</td>
+					<td>${c.pessoa.sexo.descricao}</td>
+					<td>${c.telefone}</td>
+					<td>${c.endereco}</td>
+					<td>${c.email}</td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 	
