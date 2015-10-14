@@ -29,19 +29,24 @@ public class ServletControle extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String comandoStr = request.getParameter("comando");
 		
-		try {
-			IComando comando = (IComando) Class.forName(comandoStr).newInstance();
-			String navegacao = comando.executar(request, response);
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher(navegacao);
-			requestDispatcher.forward(request, response);
-			
-		} catch (AgendaException e) {
-			//
-		} catch (Exception e) {
-			
+		String comandoStr = request.getParameter("comando");
+		RequestDispatcher requestDispatcher = null;
+		if (comandoStr != null && !comandoStr.equals("")) {
+			try {
+				IComando comando = (IComando) Class.forName(comandoStr).newInstance();
+				String navegacao = comando.executar(request, response);
+				requestDispatcher = request.getRequestDispatcher(navegacao);
+			} catch (AgendaException e) {
+				//
+			} catch (Exception e) {
+				
+			}			
+		} else {
+			requestDispatcher = request.getRequestDispatcher("/index.html");
 		}
+		requestDispatcher.forward(request, response);
+	
 	}
 
 }
