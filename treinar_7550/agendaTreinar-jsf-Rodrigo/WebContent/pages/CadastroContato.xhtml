@@ -1,0 +1,34 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+
+
+
+<head>
+</head>
+<body>
+
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputText value="Nome:" />
+			<h:inputText value="#{cadastroContatoMB.contato.pessoa.nome}" />
+			<h:outputText value="Sexo:" />
+			<h:selectOneRadio value="#{cadastroContatoMB.contato.pessoa.sexo}">
+				<f:selectItems value="#{applicationAgenda.sexos}"
+					itemLabel="#{sexo.descricao}" itemValue="#{sexo}" var="sexo" />
+			</h:selectOneRadio>
+			<h:outputText value="#{cadastroContatoMB.contato.email}" />
+			<h:outputText value="Endereco:" />
+			<h:inputText value="#{cadastroContatoMB.contato.endereco}" />
+			<h:commandButton action="#{cadastroContatoMB.gravarContato()}"
+				value="Gravar" />
+
+
+		</h:panelGrid>
+	</h:form>
+
+</body>
+</html>
