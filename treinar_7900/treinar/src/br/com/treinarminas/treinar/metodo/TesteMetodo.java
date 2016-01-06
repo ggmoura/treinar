@@ -14,7 +14,7 @@ public class TesteMetodo {
 		System.out.println(p.idade);
 		
 		Pessoa p2 = new Pessoa();
-		
+		System.out.println(p2.nome);
 		
 	}
 	
