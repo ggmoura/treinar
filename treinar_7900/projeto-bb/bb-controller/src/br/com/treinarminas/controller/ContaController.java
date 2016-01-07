@@ -12,7 +12,7 @@ public class ContaController {
 	}
 	
 	public double recuperarSaldo() {
-		return conta.saldo;
+		return conta.recuperarSaldo();
 	}
 	
 }
