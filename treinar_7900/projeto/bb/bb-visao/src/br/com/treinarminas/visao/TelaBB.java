@@ -84,7 +84,7 @@ public class TelaBB {
 		Conta c = null;
 
 		Integer opcao = leitor.nextInt();
-
+		leitor.nextLine();
 		switch (opcao) {
 		case 1:
 			c = new ContaCorrente();
@@ -128,7 +128,7 @@ public class TelaBB {
 
 	private void cadastrarConta(ContaCorrente c) {
 		cadastrarConta((Conta)c);
-		System.out.println("Informe o valor do limite de credito");
+		System.out.print("Informe o valor do limite de credito: ");
 		c.setLimiteCreditoDisponivel(leitor.nextDouble());
 		leitor.nextLine();
 	}
