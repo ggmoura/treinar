@@ -16,4 +16,9 @@ public class Peixe extends AnimalAquitico {
 	public void locomover() {
 		System.out.println("O peixe nada");
 	}
+	
+	public void tipoPeixe(){
+		System.out.println("Eu sou um peixe de água: " + getTipoAgua());
+	}
+
 }
