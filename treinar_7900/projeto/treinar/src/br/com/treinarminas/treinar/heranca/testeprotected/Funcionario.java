@@ -17,6 +17,10 @@ public abstract class Funcionario {
 	private Double salario;
 
 	private Integer horasTrabalhadas;
+	
+	String testeAtributoDefault;
+	
+	protected String testeAtributoProtected;
 
 	public void calcularSalario() {
 		salario = horasTrabalhadas * 60d;

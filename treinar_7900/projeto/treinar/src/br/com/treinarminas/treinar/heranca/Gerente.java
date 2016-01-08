@@ -9,7 +9,7 @@ public class Gerente extends Funcionario {
 	}
 
 	public Gerente() {
-
+		
 	}
 
 	private Double bonificacao;
