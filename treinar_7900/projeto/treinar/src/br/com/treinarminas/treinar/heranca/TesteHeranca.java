@@ -2,30 +2,28 @@ package br.com.treinarminas.treinar.heranca;
 
 public class TesteHeranca {
 
-	
 	public static void main(String[] args) {
-		
+
 		Gerente g = new Gerente();
-		g.nome = "gleidson";
-		g.idade = 25;
-		g.salario = 1000d;
-		g.bonificacao = 100d;
-		g.horasTrabalhadas = 100;
+		g.setNome("gleidson");
+		g.setIdade(25);
+		g.setSalario(1000d);
+		g.setBonificacao(100d);
+		g.setHorasTrabalhadas(100);
 		g.calcularSalario();
-		System.out.println(g.nome);
-		
+		System.out.println(g.getNome());
+
 		Secretaria s = new Secretaria();
-		s.nome = "gleidson";
-		s.idade = 25;
-		s.salario = 1000d;
-		//s.bonificacao = 100d;
-		s.departamento = "diretoria";
-		s.horasTrabalhadas = 50;
+		s.setNome("Maria Sophia");
+		s.setIdade(3);
+		s.setSalario(10000d);
+		// s.bonificacao = 100d; atributo exclusivo de gerente
+		s.setDepartamento("diretoria");
+		s.setHorasTrabalhadas(1000);
 		s.calcularSalario();
-		
-		System.out.println(s.departamento);
-		
-		
+
+		System.out.println("departamento:\n\t" + s.getDepartamento());
+
 	}
-	
+
 }
