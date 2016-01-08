@@ -3,6 +3,9 @@ package br.com.treinarminas.visao;
 import java.util.Scanner;
 
 import br.com.treinarminas.bb.entitdade.Cliente;
+import br.com.treinarminas.bb.entitdade.ContaCorrente;
+import br.com.treinarminas.bb.entitdade.ContaPoupanca;
+import br.com.treinarminas.bb.entitdade.ContaSalario;
 import br.com.treinarminas.bb.entitdade.core.Conta;
 import br.com.treinarminas.controller.ContaController;
 
@@ -50,10 +53,11 @@ public class TelaBB {
 		Double valor = leitor.nextDouble();
 		leitor.nextLine();
 		Boolean sacou = controller.sacar(valor);
-		
-		//utilizando if ternario [mais elegante e mais performatico LoL]
-		//System.out.println(sacou ? "Saque efetuado com sucesso!" : "Saldo insuficiente!");
-		
+
+		// utilizando if ternario [mais elegante e mais performatico LoL]
+		// System.out.println(sacou ? "Saque efetuado com sucesso!" :
+		// "Saldo insuficiente!");
+
 		if (sacou) {
 			System.out.println("Saque efetuado com sucesso!");
 		} else {
@@ -73,7 +77,40 @@ public class TelaBB {
 	}
 
 	private void criarConta() {
-		Conta c = new Conta();
+
+		System.out.println("\n\t\t1 - Conta Corrente"
+				+ "\n\t\t2 - Conta Poupança" + "\n\t\t3 - Conta Salário");
+
+		Conta c = null;
+
+		Integer opcao = leitor.nextInt();
+
+		switch (opcao) {
+		case 1:
+			c = new ContaCorrente();
+			cadastrarConta((ContaCorrente) c);
+			break;
+		case 2:
+			c = new ContaPoupanca();
+			cadastrarConta((ContaPoupanca) c);
+
+			break;
+		case 3:
+			c = new ContaSalario();
+			cadastrarConta((ContaSalario) c);
+
+			break;
+
+		default:
+			break;
+		}
+
+		controller.cadastrarConta(c);
+
+	}
+
+	private void cadastrarConta(Conta c) {
+
 		System.out.print("Informe o nome do correntista: ");
 		c.setCliente(new Cliente());
 
@@ -85,10 +122,26 @@ public class TelaBB {
 		c.getCliente().setNome(leitor.nextLine());
 		System.out.print("Informe o saldo da conta: ");
 		c.depositar(leitor.nextDouble());
-		System.out.print("Informe o limite de credito da conta: ");
+		leitor.nextLine();
+
+	}
+
+	private void cadastrarConta(ContaCorrente c) {
+		cadastrarConta((Conta)c);
+		System.out.println("Informe o valor do limite de credito");
 		c.setLimiteCreditoDisponivel(leitor.nextDouble());
 		leitor.nextLine();
-		controller.cadastrarConta(c);
+	}
+
+	private void cadastrarConta(ContaPoupanca c) {
+		cadastrarConta((Conta)c);
+		System.out.println("Informe o valor da taxa de manutenção");
+		c.setTaxaRendimento(leitor.nextDouble());
+		leitor.nextLine();
+	}
+
+	private void cadastrarConta(ContaSalario c) {
+		cadastrarConta((Conta)c);
 	}
 
 }
