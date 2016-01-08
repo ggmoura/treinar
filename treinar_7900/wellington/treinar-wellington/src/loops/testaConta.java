@@ -17,8 +17,12 @@ public class testaConta {
 		
 		
 		
-		System.out.println(a.getEndereco());
-
+		System.out.println(a.getEndereco() +  a.getNumeroAp()
+		+ a.getBloco()
+		+ a.getEstado()
+		+ a.getCidade()
+		+ a.getPais()
+		);
 	}
 
 }
