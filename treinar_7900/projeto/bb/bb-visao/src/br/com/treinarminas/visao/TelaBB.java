@@ -39,6 +39,10 @@ public class TelaBB {
 				efetuarSaque();
 				break;
 
+			case "4":
+				depositar();
+				break;
+				
 			default:
 				break;
 			}
@@ -46,6 +50,11 @@ public class TelaBB {
 		} while (!opcao.equals("0"));
 
 		leitor.close();
+	}
+
+	private void depositar() {
+		System.out.print("Informe o valor a ser depositado: ");
+		controller.efetuarDeposito(leitor.nextDouble());
 	}
 
 	private void efetuarSaque() {
@@ -71,8 +80,11 @@ public class TelaBB {
 	}
 
 	private void imprimirMenu() {
-		System.out.println("Informe:" + "\n\t1 - Cadastrar Conta"
-				+ "\n\t2 - Exibir Saldo" + "\n\t3 - Efetuar Saque"
+		System.out.println("Informe:" 
+				+ "\n\t1 - Cadastrar Conta"
+				+ "\n\t2 - Exibir Saldo" 
+				+ "\n\t3 - Efetuar Saque"
+				+ "\n\t4 - Depositar"
 				+ "\n\t0 - Sair");
 	}
 

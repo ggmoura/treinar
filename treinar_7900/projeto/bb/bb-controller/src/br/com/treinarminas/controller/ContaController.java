@@ -19,4 +19,8 @@ public class ContaController {
 		return conta.sacar(valor);
 	}
 
+	public void efetuarDeposito(Double valor) {
+		conta.depositar(valor);
+	}
+
 }
