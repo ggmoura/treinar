@@ -3,6 +3,7 @@ package br.com.treinarminas.treinar.estatico;
 public class TesteStatic {
 
 	
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 		
 		ClasseAtributoStatic atrStatic = new ClasseAtributoStatic();
