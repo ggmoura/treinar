@@ -12,11 +12,12 @@ import br.com.treinarminas.controller.ContaController;
 public class TelaBB {
 
 	// contaco
-	private Scanner leitor = new Scanner(System.in);
+	private Scanner leitor;
 	private ContaController controller;
 
 	public TelaBB() {
 		controller = new ContaController();
+		leitor = new Scanner(System.in);
 	}
 
 	public void iniciarAtividade() {
