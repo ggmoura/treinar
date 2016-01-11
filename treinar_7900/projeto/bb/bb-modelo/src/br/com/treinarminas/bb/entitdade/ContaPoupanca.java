@@ -4,7 +4,11 @@ import br.com.treinarminas.bb.entitdade.core.Conta;
 
 public class ContaPoupanca extends Conta {
 
-	public Double taxaRendimento;
+	private static Double taxaRendimento;
+	
+	static {
+		taxaRendimento = 0.05;
+	}
 	
 	@Override
 	public Boolean sacar(Double valor) {
@@ -30,12 +34,11 @@ public class ContaPoupanca extends Conta {
 		return getSaldo();
 	}
 
-	public Double getTaxaRendimento() {
+	public static Double getTaxaRendimento() {
 		return taxaRendimento;
 	}
 
-	public void setTaxaRendimento(Double taxaRendimento) {
-		this.taxaRendimento = taxaRendimento;
+	public static void setTaxaRendimento(Double taxaRendimento) {
+		ContaPoupanca.taxaRendimento = taxaRendimento;
 	}
-	
 }

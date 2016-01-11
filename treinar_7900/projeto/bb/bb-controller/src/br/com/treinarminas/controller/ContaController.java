@@ -1,5 +1,6 @@
 package br.com.treinarminas.controller;
 
+import br.com.treinarminas.bb.entitdade.ContaPoupanca;
 import br.com.treinarminas.bb.entitdade.core.Conta;
 
 public class ContaController {
@@ -21,6 +22,10 @@ public class ContaController {
 
 	public void efetuarDeposito(Double valor) {
 		conta.depositar(valor);
+	}
+
+	public void alterarTaxaRendimento(Double taxaRendimento) {
+		ContaPoupanca.setTaxaRendimento(taxaRendimento);
 	}
 
 }

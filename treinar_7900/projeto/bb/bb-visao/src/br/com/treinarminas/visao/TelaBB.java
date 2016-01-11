@@ -44,6 +44,10 @@ public class TelaBB {
 				depositar();
 				break;
 				
+			case "5":
+				alterarTaxaRendimento();
+				break;
+				
 			default:
 				break;
 			}
@@ -51,6 +55,12 @@ public class TelaBB {
 		} while (!opcao.equals("0"));
 
 		leitor.close();
+	}
+
+	private void alterarTaxaRendimento() {
+		System.out.print("Informe o valor da taxa de rendimento: ");
+		controller.alterarTaxaRendimento(leitor.nextDouble());
+		leitor.nextLine();
 	}
 
 	private void depositar() {
@@ -86,6 +96,7 @@ public class TelaBB {
 				+ "\n\t2 - Exibir Saldo" 
 				+ "\n\t3 - Efetuar Saque"
 				+ "\n\t4 - Depositar"
+				+ "\n\t5 - Alterar Taxa de Rendimento"
 				+ "\n\t0 - Sair");
 	}
 
@@ -148,9 +159,6 @@ public class TelaBB {
 
 	private void cadastrarConta(ContaPoupanca c) {
 		cadastrarConta((Conta)c);
-		System.out.println("Informe o valor da taxa de manutenção");
-		c.setTaxaRendimento(leitor.nextDouble());
-		leitor.nextLine();
 	}
 
 	private void cadastrarConta(ContaSalario c) {
