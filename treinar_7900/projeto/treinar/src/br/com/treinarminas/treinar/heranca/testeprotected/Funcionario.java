@@ -1,5 +1,12 @@
 package br.com.treinarminas.treinar.heranca.testeprotected;
 
+
+/*
+ * Nao eh possivel definir uma classe como sendo abstract e final ao mesmo tempo
+ * 
+ * Uma classe <code>final</code> nao pode ser herdada
+ * 
+ */
 public abstract class Funcionario {
 
 	public Funcionario() {
