@@ -1,8 +1,9 @@
 package br.com.treinarminas.bb.entitdade;
 
 import br.com.treinarminas.bb.entitdade.core.Conta;
+import br.com.treinarminas.bb.entitdade.core.ITarifavel;
 
-public class ContaCorrente extends Conta {
+public class ContaCorrente extends Conta implements ITarifavel {
 
 	private Double limiteCreditoUtilizado;
 	private Double limiteCreditoDisponivel;
@@ -84,4 +85,9 @@ public class ContaCorrente extends Conta {
 		this.taxaManutencao = taxaManutencao;
 	}
 
+	@Override
+	public void tarifar() {
+		sacar(taxaManutencao);
+	}
+	
 }

@@ -1,7 +1,7 @@
 package br.com.treinarminas.bb.entitdade.core;
 
-public interface ITarifavel {
+public interface ICaptalizavel {
 	
-	void tarifar();
+	void captalizar();
 	
 }

@@ -1,8 +1,10 @@
 package br.com.treinarminas.bb.entitdade;
 
 import br.com.treinarminas.bb.entitdade.core.Conta;
+import br.com.treinarminas.bb.entitdade.core.ICaptalizavel;
+import br.com.treinarminas.bb.entitdade.core.ITarifavel;
 
-public class ContaInvestimento extends Conta {
+public class ContaInvestimento extends Conta implements ITarifavel, ICaptalizavel {
 
 	private Double taxaManutencao;
 
@@ -48,4 +50,13 @@ public class ContaInvestimento extends Conta {
 		this.taxaRendimento = taxaRendimento;
 	}
 
+	@Override
+	public void tarifar() {
+		sacar(taxaManutencao);
+	}
+	
+	@Override
+	public void captalizar() {
+		depositar(getSaldo() * taxaRendimento);
+	}
 }

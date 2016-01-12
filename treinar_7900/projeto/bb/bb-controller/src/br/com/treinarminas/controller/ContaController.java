@@ -2,6 +2,8 @@ package br.com.treinarminas.controller;
 
 import br.com.treinarminas.bb.entitdade.ContaPoupanca;
 import br.com.treinarminas.bb.entitdade.core.Conta;
+import br.com.treinarminas.bb.entitdade.core.ICaptalizavel;
+import br.com.treinarminas.bb.entitdade.core.ITarifavel;
 import br.com.treinarminas.bb.entitdade.util.BBSingleton;
 
 public class ContaController {
@@ -34,6 +36,16 @@ public class ContaController {
 
 	public void alterarTaxaRendimento(Double taxaRendimento) {
 		ContaPoupanca.setTaxaRendimento(taxaRendimento);
+	}
+
+	public void captalizar() {
+		Conta conta = instance.recuperarConta();
+		((ICaptalizavel)conta).captalizar();
+	}
+
+	public void tarifar() {
+		Conta conta = instance.recuperarConta();
+		((ITarifavel)conta).tarifar();
 	}
 
 }

@@ -49,6 +49,14 @@ public class TelaBB {
 				alterarTaxaRendimento();
 				break;
 				
+			case "6":
+				captalizarConta();
+				break;
+				
+			case "7":
+				tarifarConta();
+				break;
+				
 			default:
 				break;
 			}
@@ -56,6 +64,14 @@ public class TelaBB {
 		} while (!opcao.equals("0"));
 
 		leitor.close();
+	}
+
+	private void captalizarConta() {
+		controller.captalizar();
+	}
+
+	private void tarifarConta() {
+		controller.tarifar();
 	}
 
 	private void alterarTaxaRendimento() {
@@ -98,6 +114,8 @@ public class TelaBB {
 				+ "\n\t3 - Efetuar Saque"
 				+ "\n\t4 - Depositar"
 				+ "\n\t5 - Alterar Taxa de Rendimento"
+				+ "\n\t6 - Captalizar Conta"
+				+ "\n\t7 - Tarifar Conta"
 				+ "\n\t0 - Sair");
 	}
 
