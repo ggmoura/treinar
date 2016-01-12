@@ -5,7 +5,7 @@ import java.util.Date;
 import br.com.treinarminas.treinar.contrato.modelo.Boleto;
 import br.com.treinarminas.treinar.contrato.modelo.Cliente;
 import br.com.treinarminas.treinar.contrato.modelo.IEmail;
-import br.com.treinarminas.treinar.contrato.modelo.ITarifador;
+import br.com.treinarminas.treinar.contrato.modelo.IInposto;
 import br.com.treinarminas.treinar.contrato.modelo.NotaPromissoria;
 
 public class TesteComInterface {
@@ -50,7 +50,7 @@ public class TesteComInterface {
 		System.out.println(email.gerarTextoEmail());
 	}
 	
-	public static void tarifarCobranca(ITarifador conta) {
+	public static void tarifarCobranca(IInposto conta) {
 		conta.tarifar();
 	}
 	

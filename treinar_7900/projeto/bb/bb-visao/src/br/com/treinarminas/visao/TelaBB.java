@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import br.com.treinarminas.bb.entitdade.Cliente;
 import br.com.treinarminas.bb.entitdade.ContaCorrente;
+import br.com.treinarminas.bb.entitdade.ContaInvestimento;
 import br.com.treinarminas.bb.entitdade.ContaPoupanca;
 import br.com.treinarminas.bb.entitdade.ContaSalario;
 import br.com.treinarminas.bb.entitdade.core.Conta;
@@ -103,7 +104,9 @@ public class TelaBB {
 	private void criarConta() {
 
 		System.out.println("\n\t\t1 - Conta Corrente"
-				+ "\n\t\t2 - Conta Poupança" + "\n\t\t3 - Conta Salário");
+						 + "\n\t\t2 - Conta Poupança"
+						 + "\n\t\t3 - Conta Salário"
+						 + "\n\t\t4 - Conta Investimento");
 
 		Conta c = null;
 
@@ -123,6 +126,11 @@ public class TelaBB {
 			c = new ContaSalario();
 			cadastrarConta((ContaSalario) c);
 
+			break;
+		case 4:
+			c = new ContaInvestimento();
+			cadastrarConta((ContaInvestimento) c);
+			
 			break;
 
 		default:
@@ -154,9 +162,20 @@ public class TelaBB {
 		cadastrarConta((Conta)c);
 		System.out.print("Informe o valor do limite de credito: ");
 		c.setLimiteCreditoDisponivel(leitor.nextDouble());
+		System.out.print("Informe o valor da taxa de manutenção: ");
+		c.setTaxaManutencao(leitor.nextDouble());
 		leitor.nextLine();
 	}
 
+	private void cadastrarConta(ContaInvestimento c) {
+		cadastrarConta((Conta)c);
+		System.out.print("Informe o valor da taxa de manutenção: ");
+		c.setTaxaManutencao(leitor.nextDouble());
+		System.out.print("Informe o valor da taxa de rendimento: ");
+		c.setTaxaRendimento(leitor.nextDouble());
+		leitor.nextLine();
+	}
+	
 	private void cadastrarConta(ContaPoupanca c) {
 		cadastrarConta((Conta)c);
 	}

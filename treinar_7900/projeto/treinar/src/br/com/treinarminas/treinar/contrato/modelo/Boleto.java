@@ -2,7 +2,7 @@ package br.com.treinarminas.treinar.contrato.modelo;
 
 import java.util.Date;
 
-public class Boleto extends Debito implements IEmail, ITarifador {
+public class Boleto extends Debito implements IEmail, IInposto {
 
 	private Date dataVencimento;
 
