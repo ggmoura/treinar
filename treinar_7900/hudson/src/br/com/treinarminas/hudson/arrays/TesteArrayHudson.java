@@ -2,7 +2,7 @@ package br.com.treinarminas.hudson.arrays;
 
 import javax.swing.JOptionPane;
 
-public class TesteArray {
+public class TesteArrayHudson {
 
 	public static void main(String[] args) {
 
