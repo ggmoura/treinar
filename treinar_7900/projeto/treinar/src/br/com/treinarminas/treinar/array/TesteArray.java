@@ -16,11 +16,18 @@ public class TesteArray {
 		alunos = new String[qtdAlunos];
 		
 		for (int i = 0; i < alunos.length; i++) {
-			alunos[i] = JOptionPane.showInputDialog("Aluno " + (i + 1));
+			alunos[i] = JOptionPane.showInputDialog("Aluno " + (i + 1) + " de " + qtdAlunos);
+		}
+
+		System.out.println("utilizando for iterate over array");
+		for (int i = 0; i < alunos.length; i++) {
+			System.out.println(alunos[i]);
 		}
 		
-		
-		
+		System.out.println("utilizando foreach...");
+		for (String nome : alunos) {
+			System.out.println(nome);
+		}
 		
 
 	}
