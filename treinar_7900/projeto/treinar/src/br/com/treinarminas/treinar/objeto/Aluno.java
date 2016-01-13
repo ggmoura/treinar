@@ -13,11 +13,11 @@ public class Aluno {
 		this.nome = nome;
 	}
 	
-	public Aluno(int idade) {
+	public Aluno(Integer idade) {
 		this.idade = idade;
 	}
 	
-	public Aluno(String nome, int idade) {
+	public Aluno(String nome, Integer idade) {
 		this(nome);
 		this.idade = idade;
 	}
