@@ -6,6 +6,7 @@ public abstract class Conta {
 
 	private Cliente cliente;
 	private Double saldo;
+	private Integer numeroConta;
 
 	public Conta() {
 		saldo = 0d;
@@ -36,6 +37,14 @@ public abstract class Conta {
 
 	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
+	}
+
+	public Integer getNumeroConta() {
+		return numeroConta;
+	}
+
+	public void setNumeroConta(Integer id) {
+		this.numeroConta = id;
 	}
 
 }

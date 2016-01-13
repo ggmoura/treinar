@@ -19,18 +19,18 @@ public class ContaController {
 		instance.gravarConta(conta);
 	}
 
-	public double recuperarSaldo() {
-		Conta conta = instance.recuperarConta();
+	public double recuperarSaldo(Integer numeroConta) {
+		Conta conta = instance.recuperarConta(numeroConta);
 		return conta.recuperarSaldo();
 	}
 
-	public Boolean sacar(Double valor) {
-		Conta conta = instance.recuperarConta();
+	public Boolean sacar(Double valor, Integer numeroConta) {
+		Conta conta = instance.recuperarConta(numeroConta);
 		return conta.sacar(valor);
 	}
 
-	public void efetuarDeposito(Double valor) {
-		Conta conta = instance.recuperarConta();
+	public void efetuarDeposito(Double valor, Integer numeroConta) {
+		Conta conta = instance.recuperarConta(numeroConta);
 		conta.depositar(valor);
 	}
 
@@ -39,13 +39,51 @@ public class ContaController {
 	}
 
 	public void captalizar() {
-		Conta conta = instance.recuperarConta();
-		((ICaptalizavel)conta).captalizar();
+		Conta[] contas = instance.recuperarContas();
+		for (Conta conta : contas) {
+			if (conta != null) {
+				captalizar(((ICaptalizavel)conta));				
+			}
+		}
+	}
+
+	private void captalizar(ICaptalizavel iCaptalizavel) {
+		//polimorfismo 
+		iCaptalizavel.captalizar();
 	}
 
 	public void tarifar() {
-		Conta conta = instance.recuperarConta();
-		((ITarifavel)conta).tarifar();
+		Conta[] contas = instance.recuperarContas();
+		for (Conta conta : contas) {
+			if (conta != null) {
+				tarifar(((ITarifavel)conta));
+			}
+		}
+	}
+
+	private void tarifar(ITarifavel iTarifavel) {
+		//polimorfismo 
+		iTarifavel.tarifar();
+	}
+
+	public Conta[] recuperarContas() {
+		Conta[] contas = instance.recuperarContas();
+		
+		Integer qtdContas = 0;
+		for (Conta conta : contas) {
+			if (conta != null) {
+				qtdContas++;
+			}
+		}
+		Conta[] contasValidas = new Conta[qtdContas];
+		Integer index = 0;
+		for (Conta conta : contas) {
+			if (conta != null) {
+				contasValidas[index] = conta;
+				index++;
+			}
+		}
+		return contasValidas;
 	}
 
 }

@@ -6,7 +6,8 @@ public class BBSingleton {
 
 	
 	private static BBSingleton instance;
-	private Conta conta;
+	private Conta[] contas;
+	private Integer index;
 	
 	static {
 		instance = new BBSingleton();
@@ -14,6 +15,8 @@ public class BBSingleton {
 	
 	private BBSingleton() {
 		super();
+		index = 0;
+		contas = new Conta[Constante.QUANTIDADE_CONTAS];
 	}
 	
 	public static BBSingleton getInstance() {
@@ -22,11 +25,16 @@ public class BBSingleton {
 	
 	
 	public void gravarConta(Conta c) {
-		conta = c;
+		c.setNumeroConta(index);
+		contas[index++] = c;
 	}
 	
-	public Conta recuperarConta() {
-		return conta;
+	public Conta recuperarConta(Integer numeroConta) {
+		return contas[numeroConta];
+	}
+
+	public Conta[] recuperarContas() {
+		return contas;
 	}
 	
 }
