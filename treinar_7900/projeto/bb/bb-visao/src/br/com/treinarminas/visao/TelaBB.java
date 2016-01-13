@@ -81,15 +81,17 @@ public class TelaBB {
 	}
 
 	private void depositar() {
+		Integer numeroConta = recuperarConta();
 		System.out.print("Informe o valor a ser depositado: ");
-		controller.efetuarDeposito(leitor.nextDouble());
+		controller.efetuarDeposito(leitor.nextDouble(), numeroConta);
 	}
 
 	private void efetuarSaque() {
+		Integer numeroConta = recuperarConta();
 		System.out.print("Informe o valor a ser sacado: ");
 		Double valor = leitor.nextDouble();
 		leitor.nextLine();
-		Boolean sacou = controller.sacar(valor);
+		Boolean sacou = controller.sacar(valor, numeroConta);
 
 		// utilizando if ternario [mais elegante e mais performatico LoL]
 		// System.out.println(sacou ? "Saque efetuado com sucesso!" :
@@ -104,7 +106,8 @@ public class TelaBB {
 	}
 
 	private void imprimirSaldo() {
-		System.out.println("Saldo: " + controller.recuperarSaldo());
+		Integer numeroConta = recuperarConta();
+		System.out.println("Saldo: " + controller.recuperarSaldo(numeroConta));
 	}
 
 	private void imprimirMenu() {
@@ -192,6 +195,18 @@ public class TelaBB {
 		System.out.print("Informe o valor da taxa de rendimento: ");
 		c.setTaxaRendimento(leitor.nextDouble());
 		leitor.nextLine();
+	}
+	
+	private Integer recuperarConta() {
+		Conta[] contas = controller.recuperarContas();
+		for (Conta conta : contas) {
+			System.out.println(conta.getNumeroConta() + " - " + conta.getCliente().getNome());
+		}
+		System.out.print("Digite o numero da conta: ");
+		Integer numeroConta = leitor.nextInt();
+		leitor.nextLine();
+		
+		return numeroConta;
 	}
 	
 	private void cadastrarConta(ContaPoupanca c) {
