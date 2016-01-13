@@ -3,7 +3,7 @@ package treinar_Cristiano;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
+
 
 public class Data {
 	
@@ -20,9 +20,7 @@ public class Data {
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		System.out.println("Início do Curso: " + df.format(inicio.getTime()));
 		
-	
-		//Calendar cf = Calendar.getInstance();
-		
+			
 		inicio.add(Calendar.DAY_OF_MONTH, 9);
 				
 		System.out.println("Término do Curso: " + df.format(inicio.getTime()));
