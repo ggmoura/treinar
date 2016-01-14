@@ -41,7 +41,7 @@ public class ContaController {
 	public void captalizar() {
 		Conta[] contas = instance.recuperarContas();
 		for (Conta conta : contas) {
-			if (conta != null) {
+			if (conta != null && conta instanceof ICaptalizavel) {
 				captalizar(((ICaptalizavel)conta));				
 			}
 		}
@@ -55,7 +55,7 @@ public class ContaController {
 	public void tarifar() {
 		Conta[] contas = instance.recuperarContas();
 		for (Conta conta : contas) {
-			if (conta != null) {
+			if (conta != null && conta instanceof ITarifavel) {
 				tarifar(((ITarifavel)conta));
 			}
 		}
@@ -84,6 +84,10 @@ public class ContaController {
 			}
 		}
 		return contasValidas;
+	}
+	
+	public void removerContaDoBanco(Integer numeroConta) {
+		instance.excluirConta(numeroConta);
 	}
 
 }

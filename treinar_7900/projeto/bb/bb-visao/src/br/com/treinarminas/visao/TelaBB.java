@@ -57,6 +57,14 @@ public class TelaBB {
 				tarifarConta();
 				break;
 				
+			case "8":
+				excluirConta();
+				break;
+				
+			case "9":
+				listarContas();
+				break;
+				
 			default:
 				break;
 			}
@@ -119,6 +127,8 @@ public class TelaBB {
 				+ "\n\t5 - Alterar Taxa de Rendimento"
 				+ "\n\t6 - Captalizar Conta"
 				+ "\n\t7 - Tarifar Conta"
+				+ "\n\t8 - Excluir Conta"
+				+ "\n\t9 - Listar Contas"
 				+ "\n\t0 - Sair");
 	}
 
@@ -209,12 +219,25 @@ public class TelaBB {
 		return numeroConta;
 	}
 	
+	private void excluirConta() {
+		Integer numeroConta = recuperarConta();
+		controller.removerContaDoBanco(numeroConta);
+	}
+	
 	private void cadastrarConta(ContaPoupanca c) {
 		cadastrarConta((Conta)c);
 	}
 
 	private void cadastrarConta(ContaSalario c) {
 		cadastrarConta((Conta)c);
+	}
+	
+	private void listarContas() {
+		Conta[] contas = controller.recuperarContas();
+		for (Conta conta : contas) {
+			System.out.println(conta);
+		}
+		System.out.println("\n");
 	}
 
 }

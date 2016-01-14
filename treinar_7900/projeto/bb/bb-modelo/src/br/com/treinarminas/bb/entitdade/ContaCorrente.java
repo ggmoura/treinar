@@ -90,4 +90,9 @@ public class ContaCorrente extends Conta implements ITarifavel {
 		sacar(taxaManutencao);
 	}
 	
+	@Override
+	public String toString() {
+		return "Conta Corrente - " + super.toString();
+	}
+	
 }

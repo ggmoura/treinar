@@ -59,4 +59,10 @@ public class ContaInvestimento extends Conta implements ITarifavel, ICaptalizave
 	public void captalizar() {
 		depositar(getSaldo() * taxaRendimento);
 	}
+	
+	@Override
+	public String toString() {
+		return "Conta Investimento - " + super.toString();
+	}
+	
 }
