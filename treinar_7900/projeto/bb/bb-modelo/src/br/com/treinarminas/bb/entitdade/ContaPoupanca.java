@@ -48,4 +48,9 @@ public class ContaPoupanca extends Conta implements ICaptalizavel {
 		Double rendimento = getSaldo() * taxaRendimento;
 		depositar(rendimento);
 	}
+	
+	@Override
+	public String toString() {
+		return "Conta Poupança - " + super.toString();
+	}
 }

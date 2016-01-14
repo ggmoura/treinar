@@ -37,4 +37,8 @@ public class BBSingleton {
 		return contas;
 	}
 	
+	public void excluirConta(Integer numeroConta) {
+		contas[numeroConta] = null;
+	}
+	
 }

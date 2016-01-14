@@ -85,5 +85,9 @@ public class ContaController {
 		}
 		return contasValidas;
 	}
+	
+	public void removerContaDoBanco(Integer numeroConta) {
+		instance.excluirConta(numeroConta);
+	}
 
 }

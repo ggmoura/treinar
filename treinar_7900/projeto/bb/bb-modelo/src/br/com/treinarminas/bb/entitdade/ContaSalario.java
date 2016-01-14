@@ -27,5 +27,11 @@ public class ContaSalario extends Conta {
 	public Double recuperarSaldo() {
 		return getSaldo();
 	}
+	
+	@Override
+	public String toString() {
+		return "Conta Salário - " + super.toString();
+	}
+	
 
 }

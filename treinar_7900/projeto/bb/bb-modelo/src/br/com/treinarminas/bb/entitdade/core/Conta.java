@@ -47,4 +47,9 @@ public abstract class Conta {
 		this.numeroConta = id;
 	}
 
+	@Override
+	public String toString() {
+		return numeroConta + " " + cliente.getNome();
+	}
+	
 }
