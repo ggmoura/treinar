@@ -11,12 +11,18 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+
+import br.com.treinarminas.bb.entitdade.Cliente;
+import br.com.treinarminas.controller.ContaController;
 
 public class ContaInvestimento extends Composite {
 
 	private final FormToolkit toolkit = new FormToolkit(Display.getCurrent());
-	private Text text;
-	private Text text_1;
+	private Text taxaManutencao;
+	private Text taxaRendimento;
 
 	/**
 	 * Create the composite.
@@ -34,15 +40,15 @@ public class ContaInvestimento extends Composite {
 		toolkit.paintBordersFor(this);
 		setLayout(new FormLayout());
 		
-		CadastroConta composite = new CadastroConta(this, SWT.NONE);
+		CadastroConta compositeConta = new CadastroConta(this, SWT.NONE);
 		FormData fd_composite = new FormData();
 		fd_composite.bottom = new FormAttachment(0, 134);
 		fd_composite.right = new FormAttachment(0, 460);
 		fd_composite.top = new FormAttachment(0, 10);
 		fd_composite.left = new FormAttachment(0, 10);
-		composite.setLayoutData(fd_composite);
-		toolkit.adapt(composite);
-		toolkit.paintBordersFor(composite);
+		compositeConta.setLayoutData(fd_composite);
+		toolkit.adapt(compositeConta);
+		toolkit.paintBordersFor(compositeConta);
 		
 		Label lblTaxaManuteno = new Label(this, SWT.NONE);
 		FormData fd_lblTaxaManuteno = new FormData();
@@ -54,13 +60,13 @@ public class ContaInvestimento extends Composite {
 		toolkit.adapt(lblTaxaManuteno, true, true);
 		lblTaxaManuteno.setText("Taxa Manuten\u00E7\u00E3o");
 		
-		text = new Text(this, SWT.BORDER);
-		FormData fd_text = new FormData();
-		fd_text.right = new FormAttachment(0, 261);
-		fd_text.top = new FormAttachment(0, 142);
-		fd_text.left = new FormAttachment(0, 130);
-		text.setLayoutData(fd_text);
-		toolkit.adapt(text, true, true);
+		taxaManutencao = new Text(this, SWT.BORDER);
+		FormData fd_taxaManutencao = new FormData();
+		fd_taxaManutencao.right = new FormAttachment(0, 261);
+		fd_taxaManutencao.top = new FormAttachment(0, 142);
+		fd_taxaManutencao.left = new FormAttachment(0, 130);
+		taxaManutencao.setLayoutData(fd_taxaManutencao);
+		toolkit.adapt(taxaManutencao, true, true);
 		
 		Label lblTaxaRendimento = new Label(this, SWT.NONE);
 		FormData fd_lblTaxaRendimento = new FormData();
@@ -72,13 +78,35 @@ public class ContaInvestimento extends Composite {
 		lblTaxaRendimento.setText("Taxa Rendimento");
 		toolkit.adapt(lblTaxaRendimento, true, true);
 		
-		text_1 = new Text(this, SWT.BORDER);
-		FormData fd_text_1 = new FormData();
-		fd_text_1.right = new FormAttachment(0, 261);
-		fd_text_1.top = new FormAttachment(0, 181);
-		fd_text_1.left = new FormAttachment(0, 130);
-		text_1.setLayoutData(fd_text_1);
-		toolkit.adapt(text_1, true, true);
+		taxaRendimento = new Text(this, SWT.BORDER);
+		FormData fd_taxaRendimento = new FormData();
+		fd_taxaRendimento.right = new FormAttachment(0, 261);
+		fd_taxaRendimento.top = new FormAttachment(0, 181);
+		fd_taxaRendimento.left = new FormAttachment(0, 130);
+		taxaRendimento.setLayoutData(fd_taxaRendimento);
+		toolkit.adapt(taxaRendimento, true, true);
+		
+		Button btnSalvar = new Button(this, SWT.NONE);
+		btnSalvar.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				ContaController controller = new ContaController();
+				br.com.treinarminas.bb.entitdade.ContaInvestimento conta = new br.com.treinarminas.bb.entitdade.ContaInvestimento();
+				conta.setCliente(new Cliente());
+				conta.getCliente().setNome(compositeConta.getNomeCliente().getText());
+				conta.setSaldo(Double.parseDouble(compositeConta.getSaldoConta().getText()));
+				conta.setTaxaManutencao(Double.parseDouble(taxaManutencao.getText()));
+				conta.setTaxaRendimento(Double.parseDouble(taxaRendimento.getText()));
+				controller.cadastrarConta(conta);
+
+			}
+		});
+		FormData fd_btnSalvar = new FormData();
+		fd_btnSalvar.bottom = new FormAttachment(100, -26);
+		fd_btnSalvar.right = new FormAttachment(100, -112);
+		btnSalvar.setLayoutData(fd_btnSalvar);
+		toolkit.adapt(btnSalvar, true, true);
+		btnSalvar.setText("Salvar");
 
 	}
 
