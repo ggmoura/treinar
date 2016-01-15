@@ -128,6 +128,10 @@ public class TelaSWT {
 				ContaController controller = new ContaController();
 				controller.cadastrarConta(conta);
 				JOptionPane.showMessageDialog(null, "Conta corrente cadastrada com sucesso!!!");
+				nomeCorrentista.setText("");
+				valorSaldo.setText("");
+				limiteCredito.setText("");
+				taxaManutencao.setText("");
 				telaContaCorrente.setVisible(Boolean.FALSE);
 			}
 		});
