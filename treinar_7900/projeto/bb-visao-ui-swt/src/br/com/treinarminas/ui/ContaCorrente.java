@@ -1,5 +1,7 @@
 package br.com.treinarminas.ui;
 
+import javax.swing.JOptionPane;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
@@ -14,6 +16,7 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 
 import br.com.treinarminas.bb.entitdade.Cliente;
 import br.com.treinarminas.controller.ContaController;
+
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
@@ -101,6 +104,14 @@ public class ContaCorrente extends Composite {
 				conta.setTaxaManutencao(Double.parseDouble(taxaManutencao.getText()));
 				conta.setLimiteCreditoDisponivel(Double.parseDouble(limiteCredito.getText()));
 				controller.cadastrarConta(conta);
+				
+				JOptionPane.showMessageDialog(null, "Conta salva com sucesso!!!");
+				compositeConta.getNomeCliente().setText("");
+				compositeConta.getSaldoConta().setText("");
+				taxaManutencao.setText("");
+				limiteCredito.setText("");
+				
+				
 			}
 		});
 		toolkit.adapt(btnNewButton, true, true);
