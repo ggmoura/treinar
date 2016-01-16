@@ -1,5 +1,6 @@
 package br.com.treinarminas.controller;
 
+import br.com.treinarminas.bb.entitdade.AppException;
 import br.com.treinarminas.bb.entitdade.ContaPoupanca;
 import br.com.treinarminas.bb.entitdade.core.Conta;
 import br.com.treinarminas.bb.entitdade.core.ICaptalizavel;
@@ -24,9 +25,9 @@ public class ContaController {
 		return conta.recuperarSaldo();
 	}
 
-	public Boolean sacar(Double valor, Integer numeroConta) {
+	public void sacar(Double valor, Integer numeroConta) throws AppException {
 		Conta conta = instance.recuperarConta(numeroConta);
-		return conta.sacar(valor);
+		conta.sacar(valor);
 	}
 
 	public void efetuarDeposito(Double valor, Integer numeroConta) {

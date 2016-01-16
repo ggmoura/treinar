@@ -5,6 +5,8 @@ import br.com.treinarminas.bb.entitdade.core.ITarifavel;
 
 public class ContaCorrente extends Conta implements ITarifavel {
 
+	private static final long serialVersionUID = 1L;
+	
 	private Double limiteCreditoUtilizado;
 	private Double limiteCreditoDisponivel;
 	private Double taxaManutencao;
@@ -36,24 +38,24 @@ public class ContaCorrente extends Conta implements ITarifavel {
 		setSaldo(getSaldo() + valor);
 	}
 
-	public Boolean sacar(Double valor) {
+	public void sacar(Double valor) throws AppException {
 
 		// regra de saque tarifado em um real
 		valor += 1;
 
-		Boolean sacou = Boolean.FALSE;
 		if (valor <= getSaldo()) {
 
 			setSaldo(getSaldo() - valor);
 
-			sacou = Boolean.TRUE;
 		} else if (valor <= (getSaldo() + (limiteCreditoDisponivel - limiteCreditoUtilizado))) {
 			limiteCreditoUtilizado += (valor - getSaldo());
 			setSaldo(0d);
-			sacou = Boolean.TRUE;
+			AppException excecao = new AppException(0);
+			throw excecao;
+		} else {
+			AppException excecao = new AppException(0);
+			throw excecao;
 		}
-
-		return sacou;
 	}
 
 	@Override
@@ -87,7 +89,11 @@ public class ContaCorrente extends Conta implements ITarifavel {
 
 	@Override
 	public void tarifar() {
-		sacar(taxaManutencao);
+		try {
+			sacar(taxaManutencao);
+		} catch (AppException e) {
+			System.out.println("comunicar direcao do banco");
+		}
 	}
 	
 	@Override

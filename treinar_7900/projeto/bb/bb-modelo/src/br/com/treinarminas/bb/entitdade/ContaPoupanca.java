@@ -5,6 +5,8 @@ import br.com.treinarminas.bb.entitdade.core.ICaptalizavel;
 
 public class ContaPoupanca extends Conta implements ICaptalizavel {
 
+	private static final long serialVersionUID = 1L;
+	
 	private static Double taxaRendimento;
 	
 	static {
@@ -12,16 +14,15 @@ public class ContaPoupanca extends Conta implements ICaptalizavel {
 	}
 	
 	@Override
-	public Boolean sacar(Double valor) {
-		Boolean sacou = Boolean.FALSE;
+	public void sacar(Double valor) throws AppException {
 		if (getSaldo() >= valor) {
 			//calcula o valor do novo saldo
 			Double novoSaldo = getSaldo() - valor;
 			//atualiza o saldo
 			setSaldo(novoSaldo);
-			sacou = Boolean.TRUE;
+		} else {
+			throw new AppException(0);
 		}
-		return sacou;
 	}
 
 	@Override
