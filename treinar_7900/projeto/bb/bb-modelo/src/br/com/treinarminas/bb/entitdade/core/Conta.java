@@ -6,7 +6,7 @@ import br.com.treinarminas.bb.entitdade.Cliente;
 public abstract class Conta implements IEntity {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private Cliente cliente;
 	private Double saldo;
 	private Integer numeroConta;
@@ -24,7 +24,7 @@ public abstract class Conta implements IEntity {
 	public Long getId() {
 		return numeroConta.longValue();
 	}
-	
+
 	public abstract void sacar(Double valor) throws AppException;
 
 	public abstract void depositar(Double valor);
@@ -59,5 +59,31 @@ public abstract class Conta implements IEntity {
 	public String toString() {
 		return numeroConta + " " + cliente.getNome();
 	}
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((numeroConta == null) ? 0 : numeroConta.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Conta other = (Conta) obj;
+		if (numeroConta == null) {
+			if (other.numeroConta != null)
+				return false;
+		} else if (!numeroConta.equals(other.numeroConta))
+			return false;
+		return true;
+	}
+
 }

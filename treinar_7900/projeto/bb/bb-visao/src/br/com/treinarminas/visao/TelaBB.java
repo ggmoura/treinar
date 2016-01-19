@@ -1,5 +1,6 @@
 package br.com.treinarminas.visao;
 
+import java.util.List;
 import java.util.Scanner;
 
 import br.com.treinarminas.bb.entitdade.AppException;
@@ -174,7 +175,7 @@ public class TelaBB {
 	}
 
 	private void validarConta(Conta c) throws AppException {
-		Boolean contaValida = Boolean.FALSE;
+		Boolean contaValida = Boolean.TRUE;
 		if (c == null || c.getSaldo() == null) {
 			contaValida = Boolean.FALSE;			
 		}
@@ -223,7 +224,7 @@ public class TelaBB {
 	}
 	
 	private Integer recuperarConta() {
-		Conta[] contas = controller.recuperarContas();
+		List<Conta> contas = controller.recuperarContas();
 		for (Conta conta : contas) {
 			System.out.println(conta.getNumeroConta() + " - " + conta.getCliente().getNome());
 		}
@@ -248,7 +249,7 @@ public class TelaBB {
 	}
 	
 	private void listarContas() {
-		Conta[] contas = controller.recuperarContas();
+		List<Conta> contas = controller.recuperarContas();
 		for (Conta conta : contas) {
 			System.out.println(conta);
 		}

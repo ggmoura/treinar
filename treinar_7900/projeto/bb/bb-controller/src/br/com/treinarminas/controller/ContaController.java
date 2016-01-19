@@ -1,5 +1,7 @@
 package br.com.treinarminas.controller;
 
+import java.util.List;
+
 import br.com.treinarminas.bb.entitdade.AppException;
 import br.com.treinarminas.bb.entitdade.ContaPoupanca;
 import br.com.treinarminas.bb.entitdade.core.Conta;
@@ -40,7 +42,7 @@ public class ContaController {
 	}
 
 	public void captalizar() {
-		Conta[] contas = instance.recuperarContas();
+		List<Conta> contas = instance.recuperarContas();
 		for (Conta conta : contas) {
 			if (conta != null && conta instanceof ICaptalizavel) {
 				captalizar(((ICaptalizavel)conta));				
@@ -54,7 +56,7 @@ public class ContaController {
 	}
 
 	public void tarifar() {
-		Conta[] contas = instance.recuperarContas();
+		List<Conta> contas = instance.recuperarContas();
 		for (Conta conta : contas) {
 			if (conta != null && conta instanceof ITarifavel) {
 				tarifar(((ITarifavel)conta));
@@ -67,24 +69,9 @@ public class ContaController {
 		iTarifavel.tarifar();
 	}
 
-	public Conta[] recuperarContas() {
-		Conta[] contas = instance.recuperarContas();
-		
-		Integer qtdContas = 0;
-		for (Conta conta : contas) {
-			if (conta != null) {
-				qtdContas++;
-			}
-		}
-		Conta[] contasValidas = new Conta[qtdContas];
-		Integer index = 0;
-		for (Conta conta : contas) {
-			if (conta != null) {
-				contasValidas[index] = conta;
-				index++;
-			}
-		}
-		return contasValidas;
+	public List<Conta> recuperarContas() {
+		List<Conta> contas = instance.recuperarContas();
+		return contas;
 	}
 	
 	public void removerContaDoBanco(Integer numeroConta) {
