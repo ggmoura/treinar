@@ -4,17 +4,18 @@ import br.com.treinarminas.bb.entitdade.core.Conta;
 
 public class ContaSalario extends Conta {
 
+	private static final long serialVersionUID = 1L;
+
 	@Override
-	public Boolean sacar(Double valor) {
-		Boolean sacou = Boolean.FALSE;
+	public void sacar(Double valor) throws AppException {
 		if (getSaldo() >= valor) {
 			//calcula o valor do novo saldo
 			Double novoSaldo = getSaldo() - valor;
 			//atualiza o saldo
 			setSaldo(novoSaldo);
-			sacou = Boolean.TRUE;
+		} else {
+			throw new AppException(0);
 		}
-		return sacou;
 	}
 
 	@Override

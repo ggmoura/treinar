@@ -2,12 +2,14 @@ package br.com.treinarminas.visao;
 
 import java.util.Scanner;
 
+import br.com.treinarminas.bb.entitdade.AppException;
 import br.com.treinarminas.bb.entitdade.Cliente;
 import br.com.treinarminas.bb.entitdade.ContaCorrente;
 import br.com.treinarminas.bb.entitdade.ContaInvestimento;
 import br.com.treinarminas.bb.entitdade.ContaPoupanca;
 import br.com.treinarminas.bb.entitdade.ContaSalario;
 import br.com.treinarminas.bb.entitdade.core.Conta;
+import br.com.treinarminas.bb.entitdade.util.Constante;
 import br.com.treinarminas.controller.ContaController;
 
 public class TelaBB {
@@ -99,18 +101,12 @@ public class TelaBB {
 		System.out.print("Informe o valor a ser sacado: ");
 		Double valor = leitor.nextDouble();
 		leitor.nextLine();
-		Boolean sacou = controller.sacar(valor, numeroConta);
-
-		// utilizando if ternario [mais elegante e mais performatico LoL]
-		// System.out.println(sacou ? "Saque efetuado com sucesso!" :
-		// "Saldo insuficiente!");
-
-		if (sacou) {
+		try {
+			controller.sacar(valor, numeroConta);
 			System.out.println("Saque efetuado com sucesso!");
-		} else {
-			System.out.println("Saldo insuficiente!");
+		} catch (AppException e) {
+			tratarErroCode(e);
 		}
-
 	}
 
 	private void imprimirSaldo() {
@@ -167,11 +163,30 @@ public class TelaBB {
 		default:
 			break;
 		}
-
-		controller.cadastrarConta(c);
+		
+		try {
+			validarConta(c);
+			controller.cadastrarConta(c);
+		} catch (AppException e) {
+			tratarErroCode(e);
+		}
 
 	}
 
+	private void validarConta(Conta c) throws AppException {
+		Boolean contaValida = Boolean.FALSE;
+		if (c == null || c.getSaldo() == null) {
+			contaValida = Boolean.FALSE;			
+		}
+		if (c.getCliente() == null || c.getCliente().getNome() == null || Constante.STRING_VAZIA.equals(c.getCliente().getNome())) {
+			contaValida = Boolean.FALSE;
+		}
+		if (!contaValida) {
+			throw new AppException(1);
+		}
+		
+	}
+	
 	private void cadastrarConta(Conta c) {
 
 		System.out.print("Informe o nome do correntista: ");
@@ -239,5 +254,18 @@ public class TelaBB {
 		}
 		System.out.println("\n");
 	}
+	
+	private void tratarErroCode(AppException e) {
+		switch (e.getCodigoErro()) {
+		case 0:
+			System.out.println("saldo insuficiente...");
+			break;
+		case 1:
+			System.out.println("Dados da conta incompleto...");
+			break;
 
+		default:
+			break;
+		}
+	}
 }

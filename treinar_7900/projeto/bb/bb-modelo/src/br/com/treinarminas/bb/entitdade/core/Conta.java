@@ -1,9 +1,12 @@
 package br.com.treinarminas.bb.entitdade.core;
 
+import br.com.treinarminas.bb.entitdade.AppException;
 import br.com.treinarminas.bb.entitdade.Cliente;
 
-public abstract class Conta {
+public abstract class Conta implements IEntity {
 
+	private static final long serialVersionUID = 1L;
+	
 	private Cliente cliente;
 	private Double saldo;
 	private Integer numeroConta;
@@ -17,7 +20,12 @@ public abstract class Conta {
 		this.saldo = saldo;
 	}
 
-	public abstract Boolean sacar(Double valor);
+	@Override
+	public Long getId() {
+		return numeroConta.longValue();
+	}
+	
+	public abstract void sacar(Double valor) throws AppException;
 
 	public abstract void depositar(Double valor);
 

@@ -6,21 +6,22 @@ import br.com.treinarminas.bb.entitdade.core.ITarifavel;
 
 public class ContaInvestimento extends Conta implements ITarifavel, ICaptalizavel {
 
+	private static final long serialVersionUID = 1L;
+
 	private Double taxaManutencao;
 
 	private Double taxaRendimento;
 
 	@Override
-	public Boolean sacar(Double valor) {
-		Boolean sacou = Boolean.FALSE;
+	public void sacar(Double valor) throws AppException {
 		if (getSaldo() >= valor) {
 			// calcula o valor do novo saldo
 			Double novoSaldo = getSaldo() - valor;
 			// atualiza o saldo
 			setSaldo(novoSaldo);
-			sacou = Boolean.TRUE;
+		} else {
+			throw new AppException(0);
 		}
-		return sacou;
 	}
 
 	@Override
@@ -52,7 +53,11 @@ public class ContaInvestimento extends Conta implements ITarifavel, ICaptalizave
 
 	@Override
 	public void tarifar() {
-		sacar(taxaManutencao);
+		try {
+			sacar(taxaManutencao);
+		} catch (AppException e) {
+			System.out.println("comunicar diretoria");
+		}
 	}
 	
 	@Override
