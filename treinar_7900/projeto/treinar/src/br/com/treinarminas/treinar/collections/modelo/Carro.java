@@ -7,6 +7,7 @@ public class Carro implements Comparable<Carro> {
 	private String cor;
 	private String marca;
 	private String modelo;
+	private Integer ano;
 
 	public String getChassi() {
 		return chassi;
@@ -48,6 +49,14 @@ public class Carro implements Comparable<Carro> {
 		this.modelo = modelo;
 	}
 
+	public Integer getAno() {
+		return ano;
+	}
+
+	public void setAno(Integer ano) {
+		this.ano = ano;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -72,8 +81,15 @@ public class Carro implements Comparable<Carro> {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return this.modelo + " - " + this.ano;
+	}
+
 	@Override
 	public int compareTo(Carro o) {
-		return this.chassi.compareTo(o.chassi);
+		return this.modelo.compareTo(o.modelo);
 	}
+
 }

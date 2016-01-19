@@ -2,7 +2,6 @@ package br.com.treinarminas.treinar.collections;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 import br.com.treinarminas.treinar.collections.modelo.Carro;
 
@@ -28,7 +27,7 @@ public class TesteHashSet {
 		siena.setChassi("ch2");
 		siena.setCor("Preto");
 		siena.setMarca("Fiat");
-		siena.setModelo("Uno");
+		siena.setModelo("Siena");
 		siena.setValor(27_000.00);
 		
 		Carro unoDois = uno;
