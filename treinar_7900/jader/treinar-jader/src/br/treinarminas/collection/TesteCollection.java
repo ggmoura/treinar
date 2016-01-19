@@ -6,9 +6,12 @@ import java.util.Scanner;
 
 public class TesteCollection {
 	
+	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) {
 		
+		@SuppressWarnings("unchecked")
 		Collection<String> nomes = new ArrayList();
+		@SuppressWarnings("resource")
 		Scanner pessoa = new Scanner(System.in);
 		String nome = null;
 		
