@@ -10,8 +10,6 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeMap;
 
-import br.com.treinarminas.hudson.operadores.comparacao.Comparador;
-import javafx.collections.transformation.SortedList;
 
 public class AtividadeMap {
 	public static void main(String[] args) {
