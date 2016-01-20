@@ -5,3 +5,6 @@ quinta
 sexta
 sabado
 domingo
+
+Pamela
+Rogeres
