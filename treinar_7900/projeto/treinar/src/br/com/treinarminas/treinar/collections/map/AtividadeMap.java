@@ -44,6 +44,7 @@ public class AtividadeMap {
 		System.out.println("\n\n");
 		//recupera todos os valores do mapa
 		Collection<List<String>> values = mapNomes.values();
+		System.out.println(values);
 		
 		//para percorrer todos os elementos do map navegando em um objeto chave valor
 		Set<Entry<Character, List<String>>> entrys = mapNomes.entrySet();
