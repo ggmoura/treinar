@@ -1,9 +1,6 @@
-A
-Aline
-Ana
-B
-Barbara
-Beatriz
-C
-Carlos
-Claudia
+D [domingo]
+P [pamela]
+Q [quarta, quinta]
+R [rogeres]
+S [sabado, segunda, sexta]
+T [terça]

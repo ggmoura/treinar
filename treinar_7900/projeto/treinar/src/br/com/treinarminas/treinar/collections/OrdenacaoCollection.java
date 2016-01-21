@@ -66,7 +66,7 @@ public class OrdenacaoCollection {
 			}
 		});
 		
-		
+		//Ordena lista de string
 		List<String> lista = new ArrayList<>();
 		 
 		lista.add("über");
@@ -89,6 +89,7 @@ public class OrdenacaoCollection {
 		Collections.sort(lista);		
 		System.out.println("Ordem de Simples: " + lista);
  
+		//ordena sem acentuacao
 		Collator collator = Collator.getInstance();
 		collator.setStrength(Collator.PRIMARY);
 		Collections.sort(lista, collator);		

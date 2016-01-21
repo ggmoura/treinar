@@ -6,5 +6,5 @@ sexta
 sabado
 domingo
 
-Pamela
-Rogeres
+pamela
+rogeres
