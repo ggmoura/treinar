@@ -2,8 +2,9 @@ package br.com.treinarminas.bb.entitdade.core;
 
 import br.com.treinarminas.bb.entitdade.AppException;
 import br.com.treinarminas.bb.entitdade.Cliente;
+import br.com.treinarminas.bb.entitdade.util.IArquivo;
 
-public abstract class Conta implements IEntity {
+public abstract class Conta implements IEntity, IArquivo {
 
 	private static final long serialVersionUID = 1L;
 
@@ -84,6 +85,14 @@ public abstract class Conta implements IEntity {
 		} else if (!numeroConta.equals(other.numeroConta))
 			return false;
 		return true;
+	}
+	
+	@Override
+	public String csv() {
+		StringBuilder csv = new StringBuilder(cliente.csv());
+		csv.append(";").append(numeroConta.toString()).append(";");
+		csv.append(saldo);
+		return  csv.toString();
 	}
 
 }

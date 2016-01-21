@@ -70,4 +70,13 @@ public class ContaInvestimento extends Conta implements ITarifavel, ICaptalizave
 		return "Conta Investimento - " + super.toString();
 	}
 	
+	@Override
+	public String csv() {
+		StringBuilder csv = new StringBuilder(super.csv());
+		csv.append(";").append(taxaManutencao);
+		csv.append(";").append(taxaRendimento);
+		csv.append(";").append(ContaInvestimento.class.getName());
+		return csv.toString();
+	}
+	
 }

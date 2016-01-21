@@ -1,6 +1,8 @@
 package br.com.treinarminas.bb.entitdade;
 
-public class Cliente {
+import br.com.treinarminas.bb.entitdade.util.IArquivo;
+
+public class Cliente implements IArquivo {
 
 	private String nome;
 	private Long cpf;
@@ -19,6 +21,13 @@ public class Cliente {
 
 	public void setCpf(Long cpf) {
 		this.cpf = cpf;
+	}
+
+	@Override
+	public String csv() {
+		StringBuilder csv = new StringBuilder();
+		csv.append(nome).append(";").append(cpf);
+		return csv.toString();
 	}
 
 }

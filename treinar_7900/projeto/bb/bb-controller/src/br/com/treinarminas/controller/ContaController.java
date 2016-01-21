@@ -1,5 +1,6 @@
 package br.com.treinarminas.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import br.com.treinarminas.bb.entitdade.AppException;
@@ -78,4 +79,8 @@ public class ContaController {
 		instance.excluirConta(numeroConta);
 	}
 
+	public void fecharPrograma() throws IOException {
+		instance.gravarContas();
+	}
+	
 }

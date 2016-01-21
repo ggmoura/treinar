@@ -1,5 +1,6 @@
 package br.com.treinarminas.visao;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -67,6 +68,9 @@ public class TelaBB {
 			case "9":
 				listarContas();
 				break;
+			case "0":
+				finalizar();
+				break;
 				
 			default:
 				break;
@@ -75,6 +79,14 @@ public class TelaBB {
 		} while (!opcao.equals("0"));
 
 		leitor.close();
+	}
+
+	private void finalizar() {
+		try {
+			controller.fecharPrograma();
+		} catch (IOException e) {
+			System.err.println(Constante.MENSAGEM_ERRO_GRAVAR_CONTAS);
+		}
 	}
 
 	private void captalizarConta() {

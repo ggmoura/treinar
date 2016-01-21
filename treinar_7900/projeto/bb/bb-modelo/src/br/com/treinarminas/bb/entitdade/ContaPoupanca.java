@@ -54,4 +54,12 @@ public class ContaPoupanca extends Conta implements ICaptalizavel {
 	public String toString() {
 		return "Conta Poupança - " + super.toString();
 	}
+	
+	@Override
+	public String csv() {
+		StringBuilder csv = new StringBuilder(super.csv());
+		csv.append(";").append(ContaPoupanca.class.getName());
+		return csv.toString();
+	}
+	
 }

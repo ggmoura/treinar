@@ -101,4 +101,14 @@ public class ContaCorrente extends Conta implements ITarifavel {
 		return "Conta Corrente - " + super.toString();
 	}
 	
+	@Override
+	public String csv() {
+		StringBuilder csv = new StringBuilder(super.csv());
+		csv.append(";").append(limiteCreditoDisponivel);
+		csv.append(";").append(limiteCreditoUtilizado);
+		csv.append(";").append(taxaManutencao);
+		csv.append(";").append(ContaCorrente.class.getName());
+		return csv.toString();
+	}
+	
 }

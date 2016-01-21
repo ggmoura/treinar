@@ -34,5 +34,11 @@ public class ContaSalario extends Conta {
 		return "Conta Salário - " + super.toString();
 	}
 	
+	@Override
+	public String csv() {
+		StringBuilder csv = new StringBuilder(super.csv());
+		csv.append(";").append(ContaSalario.class.getName());
+		return csv.toString();
+	}
 
 }
