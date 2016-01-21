@@ -35,7 +35,7 @@ public class TesteIO {
 				while (linha != null) {
 					if (!linha.isEmpty()) {
 
-						primeiraLetra = linha.charAt(0);
+						primeiraLetra = Character.toUpperCase(linha.charAt(0));
 						if (!meuMapa.containsKey(primeiraLetra)) {
 							meuMapa.put(primeiraLetra, new ArrayList<>());
 						}
@@ -68,7 +68,7 @@ public class TesteIO {
 
 						@Override
 						public int compare(String o1, String o2) {
-							return o1.compareTo(o2);
+							return o1.toUpperCase().compareTo(o2.toUpperCase());
 						}
 					});
 					for (String string : list) {
