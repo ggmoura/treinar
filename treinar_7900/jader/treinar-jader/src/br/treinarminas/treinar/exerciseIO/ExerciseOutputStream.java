@@ -13,6 +13,7 @@ import java.io.OutputStreamWriter;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,17 +63,29 @@ public class ExerciseOutputStream {
 			OutputStreamWriter osw = new OutputStreamWriter(os);
 			BufferedWriter bw = new BufferedWriter(osw);
 			
-			Set<Entry<Character, List<String>>> entrys = mapNomes.entrySet();
+		
+			List<Entry<Character, List<String>>> entrysList = new ArrayList<>(mapNomes.entrySet());
 			
-			for (Entry<Character, List<String>> entry : entrys) {
-				System.out.print(entry.getKey());
-				System.out.print(" ");
-				
-				Collections.sort(entry.getValue());
-				
-				System.out.println(entry.getValue());
+			Collections.sort(entrysList, new Comparator<Entry<Character, List<String>>>() {
+
+				@Override
+				public int compare(Entry<Character, List<String>> o1,
+						Entry<Character, List<String>> o2) {
+					return o1.getKey().compareTo(o2.getKey());
+				}
+			});
+			
+			//ordena sem acentuacao
+			Collator collator = Collator.getInstance();
+			collator.setStrength(Collator.PRIMARY);
+			
+			StringBuilder sb = new StringBuilder();
+			
+			for (Entry<Character, List<String>> entry : entrysList) {
+				Collections.sort(entry.getValue(), collator);
+				sb.append(entry.getKey()).append(" ").append(entry.getValue()).append("\n");
 			}
-			//bw.write();
+			bw.write(sb.toString());
 			bw.close();
 
 		}
