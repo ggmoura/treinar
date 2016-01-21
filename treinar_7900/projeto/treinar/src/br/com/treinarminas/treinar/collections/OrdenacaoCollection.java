@@ -1,5 +1,6 @@
 package br.com.treinarminas.treinar.collections;
 
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -64,6 +65,37 @@ public class OrdenacaoCollection {
 				return o1.getValor().compareTo(o2.getValor());
 			}
 		});
+		
+		//Ordena lista de string
+		List<String> lista = new ArrayList<>();
+		 
+		lista.add("über");
+		lista.add("Äther");
+		lista.add("kreativ");
+		lista.add("zahlen");
+		lista.add("können");
+		lista.add("Österreich");
+		lista.add("Löhnhoff");
+		lista.add("Dähne");
+		lista.add("Büscher");
+		lista.add("Möde");
+		lista.add("Müller");
+		lista.add("Linsenbröder");
+		lista.add("Lúkin");
+ 
+		System.out.println("Ordem de inclusão: " + lista);
+ 
+		// Realiza a ordenação dos itens
+		Collections.sort(lista);		
+		System.out.println("Ordem de Simples: " + lista);
+ 
+		//ordena sem acentuacao
+		Collator collator = Collator.getInstance();
+		collator.setStrength(Collator.PRIMARY);
+		Collections.sort(lista, collator);		
+		
+		System.out.println("Ordem com Collator: " + lista);
+		
 		
 		
 		

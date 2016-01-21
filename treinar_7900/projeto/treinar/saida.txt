@@ -1,0 +1,6 @@
+D [domingo]
+P [pamela]
+Q [quarta, quinta]
+R [rogeres]
+S [sabado, segunda, sexta]
+T [terça]
