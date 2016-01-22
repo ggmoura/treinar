@@ -11,6 +11,7 @@ public abstract class Conta implements IEntity, IArquivo {
 	private Cliente cliente;
 	private Double saldo;
 	private Integer numeroConta;
+	private Long id;
 
 	public Conta() {
 		saldo = 0d;
@@ -23,7 +24,11 @@ public abstract class Conta implements IEntity, IArquivo {
 
 	@Override
 	public Long getId() {
-		return numeroConta.longValue();
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public abstract void sacar(Double valor) throws AppException;
@@ -65,8 +70,7 @@ public abstract class Conta implements IEntity, IArquivo {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((numeroConta == null) ? 0 : numeroConta.hashCode());
+		result = prime * result + ((numeroConta == null) ? 0 : numeroConta.hashCode());
 		return result;
 	}
 
@@ -86,13 +90,13 @@ public abstract class Conta implements IEntity, IArquivo {
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String csv() {
 		StringBuilder csv = new StringBuilder(cliente.csv());
 		csv.append(";").append(numeroConta.toString()).append(";");
 		csv.append(saldo);
-		return  csv.toString();
+		return csv.toString();
 	}
 
 }
