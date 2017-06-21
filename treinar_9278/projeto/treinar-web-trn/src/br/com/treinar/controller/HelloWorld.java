@@ -18,7 +18,7 @@ public class HelloWorld extends HttpServlet {
 
 	public void init() throws ServletException {
 		// Do required initialization
-		message = "Hello World [Gleidson] Annotation";
+		message = "Hello World [${nome}]";
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,7 +27,8 @@ public class HelloWorld extends HttpServlet {
 
 		// Actual logic goes here.
 		PrintWriter out = response.getWriter();
-		out.println("<h1>" + message + "</h1>");
+		String nome = request.getParameter("nome");
+		out.println("<h1>" + message.replace("${nome}", nome) + "</h1>");
 	}
 
 	public void destroy() {
