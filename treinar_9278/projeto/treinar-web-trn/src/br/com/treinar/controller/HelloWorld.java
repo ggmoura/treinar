@@ -27,7 +27,7 @@ public class HelloWorld extends HttpServlet {
 
 		// Actual logic goes here.
 		PrintWriter out = response.getWriter();
-		String nome = request.getParameter("nome");
+		String nome = request.getParameter ("nome");
 		out.println("<h1>" + message.replace("${nome}", nome) + "</h1>");
 	}
 
