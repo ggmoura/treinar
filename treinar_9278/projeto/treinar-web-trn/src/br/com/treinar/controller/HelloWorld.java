@@ -2,18 +2,23 @@ package br.com.treinar.controller;
 
 import java.io.*;
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-// Extend HttpServlet class
+@WebServlet(urlPatterns = "*.trn")
 public class HelloWorld extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+
+	public HelloWorld() {
+		System.out.println("iniciou...");
+	}
 	
 	private String message;
 
 	public void init() throws ServletException {
 		// Do required initialization
-		message = "Hello World";
+		message = "Hello World [Gleidson] Annotation";
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
