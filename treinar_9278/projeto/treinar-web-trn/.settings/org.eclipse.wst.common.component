@@ -2,6 +2,7 @@
     <wb-module deploy-name="treinar-web-trn">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <property name="java-output-path" value="/treinar-web-trn/build/classes"/>
         <property name="context-root" value="treinar-web-trn"/>
     </wb-module>
