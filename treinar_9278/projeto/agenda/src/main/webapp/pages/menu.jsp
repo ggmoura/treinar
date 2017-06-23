@@ -10,7 +10,7 @@
 
 	<form action="menu.agenda">
 	
-		<input type="hidden" name="comando" value="br.com.treinar.agenda.comando.ListaContatoComando"> 
+		<input type="hidden" name="comando" value="listaContatos"> 
 		<input type="submit" value="Listar Contatos">
 
 		

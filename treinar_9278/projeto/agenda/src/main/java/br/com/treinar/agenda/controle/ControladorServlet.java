@@ -1,6 +1,8 @@
 package br.com.treinar.agenda.controle;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,12 +17,28 @@ import br.com.treinar.agenda.comando.IComando;
 public class ControladorServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
+	private Map<String, String> comandosMap;
+	
+	public ControladorServlet() {
+		comandosMap = new HashMap<>();
+		initCommands();
+	}
+	
+	private void initCommands() {
+		comandosMap.put("listaContatos", "br.com.treinar.agenda.comando.ListaContatoComando");
+		comandosMap.put("editaContatos", "br.com.treinar.agenda.comando.CriaContatoComando");
+	}
+	
+	private String buildCommand(String key) {
+		return comandosMap.get(key);
+	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String forward = null;
 		if (request.getParameter("comando") != null) {
 			try {
-				IComando c = (IComando) Class.forName(request.getParameter("comando").toString()).newInstance();
+				String commandKey = request.getParameter("comando").toString();
+				IComando c = (IComando) Class.forName(buildCommand(commandKey)).newInstance();
 				forward = c.executar(request);
 			} catch (Exception e) {
 				forward = "/erro.jsp";
