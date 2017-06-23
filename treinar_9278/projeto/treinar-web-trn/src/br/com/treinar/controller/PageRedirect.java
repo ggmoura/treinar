@@ -15,7 +15,7 @@ public class PageRedirect extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//CODE
+		//CODE
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/pages/alegre.jsp");
 		request.setAttribute("idadeMariaSophia", 30);
 		requestDispatcher.forward(request, response);

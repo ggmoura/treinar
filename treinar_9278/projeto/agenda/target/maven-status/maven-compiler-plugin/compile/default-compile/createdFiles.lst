@@ -1,0 +1,8 @@
+br\com\treinar\agenda\modelo\Contato.class
+br\com\treinar\agenda\modelo\TipoTelefone.class
+br\com\treinar\agenda\comando\CriaContatoComando.class
+br\com\treinar\agenda\comando\ListaContatoComando.class
+br\com\treinar\agenda\modelo\Telefone.class
+br\com\treinar\agenda\controle\ControladorServlet.class
+br\com\treinar\agenda\comando\ExcluiContatoComando.class
+br\com\treinar\agenda\comando\IComando.class
