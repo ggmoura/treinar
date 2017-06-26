@@ -4,5 +4,21 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 	<display-name>agenda</display-name>
-	
+
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/Error404.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/Error500.jsp</location>
+	</error-page>
+
+	<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/NullPointerException.jsp</location>
+	</error-page>
+
 </web-app>

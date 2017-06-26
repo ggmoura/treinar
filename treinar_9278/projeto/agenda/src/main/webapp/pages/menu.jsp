@@ -13,9 +13,9 @@
 		<input type="hidden" name="comando" value="listaContatos"> 
 		<input type="submit" value="Listar Contatos">
 
-		
-		
 	</form>
+
+	<jsp:include page="/pages/rodape.jsp" />
 
 </body>
 </html>

@@ -23,6 +23,6 @@
 
 
 	<ex:Hello message="Olá Mundo..." />
-
+	<jsp:include page="/pages/rodape.jsp" />
 </body>
 </html>

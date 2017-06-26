@@ -35,6 +35,8 @@ public class ControladorServlet extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String forward = null;
+		
+		System.out.println(forward.toCharArray());
 		if (request.getParameter("comando") != null) {
 			try {
 				String commandKey = request.getParameter("comando").toString();
