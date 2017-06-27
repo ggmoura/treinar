@@ -1,0 +1,24 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+
+</h:head>
+<h:body>
+
+	<h:messages />
+	<h:form id="formContato">
+		<h:outputText value="Nome Contato" />
+		<h:inputText id="nome"
+				label="Nome do Contato" requiredMessage="Nome do contato não pode ser vazio"
+				value="#{agendaController.contato.nome}" required="true" />
+		<h:commandButton action="#{agendaController.salvarContato()}" 
+						 value="Salvar" />
+		<h:message for="nome"/>
+	</h:form>
+
+</h:body>
+</html>
