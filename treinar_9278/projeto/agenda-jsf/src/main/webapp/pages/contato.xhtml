@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
 
@@ -11,13 +12,40 @@
 
 	<h:messages />
 	<h:form id="formContato">
+		<h:panelGrid columns="2">
+		
 		<h:outputText value="Nome Contato" />
 		<h:inputText id="nome"
 				label="Nome do Contato" requiredMessage="Nome do contato não pode ser vazio"
 				value="#{agendaController.contato.nome}" required="true" />
+				
+				
+		<h:outputText value="Telefone:" />
+		<h:panelGroup layout="block" id="divTelefone">
+			<h:inputText required="true" label="Telefone" value="#{agendaController.contato.telefone}">
+				<f:validateLength minimum="1" maximum="200"/>
+				<f:validator validatorId="br.com.treinar.agenda.validator.DDDValidator" />
+				<f:converter converterId="br.com.treinar.agenda.converter.TelefoneConverter" />
+			</h:inputText>
+			<h:selectOneMenu label="Tipo de telefone" required="true" value = "#{agendaController.contato.telefone.tipo}"> 
+	            <f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
+	            <f:selectItems value="#{agendaRoot.tipos}" var="tipo" itemLabel="#{tipo.descricao}" itemValue="#{tipo}" />   
+	         </h:selectOneMenu>
+		</h:panelGroup>  
+		
+		<h:outputText value="Data Nascimento:" />
+		<h:inputText value="#{agendaController.contato.dataNascimento}">
+			<f:convertDateTime pattern="dd/MM/yyyy"/>
+		</h:inputText>
+			
 		<h:commandButton action="#{agendaController.salvarContato()}" 
 						 value="Salvar" />
-		<h:message for="nome"/>
+		
+		<h:commandButton action="#{agendaController.navegar()}" 
+						 value="Salvar" />
+		
+		</h:panelGrid>
+	<p:gmap id="xpto" center="41.381542, 2.122893" zoom="15" type="HYBRID" style="width:100%;height:400px" />
 	</h:form>
 
 </h:body>

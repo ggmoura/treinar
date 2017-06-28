@@ -6,6 +6,16 @@ public class Telefone {
 	private Integer numero;
 	private TipoTelefone tipo;
 
+	public Telefone() {
+		super();
+	}
+	
+	public Telefone(Integer ddd, Integer numero) {
+		super();
+		this.ddd = ddd;
+		this.numero = numero;
+	}
+
 	public Integer getDdd() {
 		return ddd;
 	}
