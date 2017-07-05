@@ -1,5 +1,7 @@
 package br.com.treinar.agenda.teste;
 
+import java.util.ArrayList;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -26,13 +28,18 @@ public class TesteJPA {
 		
 		Contato c = new Contato();
 		c.setNome("Maria Sophia");
-		c.setTelefone(t);
+		
+		c.setTelefones(new ArrayList<>());
+		c.getTelefones().add(t);
+		t.setContato(c);
 		
 		manager.persist(c);
 		
 		Contato c2 = new Contato();
 		c2.setNome("Davi Lucas");
-		c2.setTelefone(t2);
+		c2.setTelefones(new ArrayList<>());
+		c2.getTelefones().add(t2);		
+		t2.setContato(c2);
 		
 		manager.persist(c2);
 		manager.getTransaction().commit(); 

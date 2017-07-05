@@ -1,5 +1,6 @@
 package br.com.treinar.agenda.modelo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -7,6 +8,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -18,11 +20,16 @@ public class Telefone {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name="cp_ddd")
+	@Column(name = "cp_ddd")
 	private Integer ddd;
 	private Integer numero;
-	
-	
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Contato contato;
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Contato recado;
+
 	@Enumerated(EnumType.STRING)
 	private TipoTelefone tipo;
 
@@ -66,6 +73,14 @@ public class Telefone {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Contato getContato() {
+		return contato;
+	}
+
+	public void setContato(Contato contato) {
+		this.contato = contato;
 	}
 
 }
