@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.treinar.aula</groupId>
 	<artifactId>agenda-trn</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 
 	<properties>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -25,7 +25,22 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>5.2.10.Final</version>
-		</dependency>	
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.2.10.Final</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+
 	</dependencies>
 
 </project>
