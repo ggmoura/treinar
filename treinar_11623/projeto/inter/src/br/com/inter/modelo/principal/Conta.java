@@ -23,6 +23,10 @@ public abstract class Conta {
 		return this.saldo;
 	}
 
+	public void deposita(Double valor) {
+		this.saldo += valor;
+	}
+
 	public Integer getNumero() {
 		return numero;
 	}

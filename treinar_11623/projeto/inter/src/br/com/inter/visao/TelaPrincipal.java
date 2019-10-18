@@ -26,6 +26,9 @@ public class TelaPrincipal {
 				case 2:
 					exibirSaldo();
 					break;
+				case 3:
+					depositar();
+					break;
 				case 0:
 					System.out.println("Valeu");
 					break;
@@ -38,6 +41,12 @@ public class TelaPrincipal {
 			}
 		} while (opcao != 0);
 
+	}
+
+	private void depositar() {
+		System.out.print("Informe o valor a ser depositado: ");
+		Double valor = teclado.nextDouble();
+		conta.deposita(valor);
 	}
 
 	private void exibirSaldo() {
@@ -53,15 +62,15 @@ public class TelaPrincipal {
 		switch (tipoConta) {
 		case 1:
 			c = new ContaCorrente();
-			criarContaCorrente((ContaCorrente) c);
+			criarConta((ContaCorrente) c);
 			break;
 		case 2:
 			c = new ContaPoupanca();
-			criarContaPoupanca((ContaPoupanca) c);
+			criarConta((ContaPoupanca) c);
 			break;
 		case 3:
 			c = new ContaInvestimento();
-			criarContaInvestimento((ContaInvestimento) c);
+			criarConta((ContaInvestimento) c);
 			break;
 		default:
 			System.out.println("Tipo de conta inválido.");
@@ -70,18 +79,18 @@ public class TelaPrincipal {
 		return c;
 	}
 
-	private void criarContaInvestimento(ContaInvestimento investimento) {
-		criarConta(investimento);
+	private void criarConta(ContaInvestimento investimento) {
+		criarConta((Conta)investimento);
 	}
 
-	private void criarContaPoupanca(ContaPoupanca poupanca) {
-		criarConta(poupanca);
+	private void criarConta(ContaPoupanca poupanca) {
+		criarConta((Conta)poupanca);
 		System.out.print("Informe a taxa de rendimento da conta: ");
 		poupanca.setTaxaRendimento(teclado.nextInt());
 	}
 
-	private void criarContaCorrente(ContaCorrente corrente) {
-		criarConta(corrente);
+	private void criarConta(ContaCorrente corrente) {
+		criarConta((Conta)corrente);
 		System.out.print("Informe o limite de crédito da conta: ");
 		corrente.setLimiteCredito(teclado.nextDouble());
 	}
@@ -107,7 +116,11 @@ public class TelaPrincipal {
 	 * Metodo utilizado apenas nesta classe, portanto, privado.
 	 */
 	private void imprimirMenu() {
-		System.out.print("Digite\n\t" + "1 - Criar Conta\n\t" + "2 - Exibir Saldo\n\t" + "0 - Sair\n=> ");
+		System.out.print("Digite\n\t" +
+				"1 - Criar Conta\n\t" +
+				"2 - Exibir Saldo\n\t" +
+				"3 - Depositar\n\t" +
+				"0 - Sair\n=> ");
 	}
 
 }

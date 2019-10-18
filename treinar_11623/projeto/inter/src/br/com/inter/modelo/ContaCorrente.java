@@ -6,6 +6,11 @@ public class ContaCorrente extends Conta {
 
 	private Double limiteCredito;
 
+	@Override
+	public void deposita(Double valor) {
+		
+	}
+
 	public Double getLimiteCredito() {
 		return limiteCredito;
 	}
