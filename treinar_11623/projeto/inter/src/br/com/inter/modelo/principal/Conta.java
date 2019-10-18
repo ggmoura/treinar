@@ -2,7 +2,7 @@ package br.com.inter.modelo.principal;
 
 import br.com.inter.modelo.Cliente;
 
-public class Conta {
+public abstract class Conta {
 
 	private Integer numero;
 	private Integer senha;
@@ -17,6 +17,10 @@ public class Conta {
 
 	public Conta() {
 		this.saldo = Double.valueOf(0);
+	}
+
+	public Double recuperarSaldo() {
+		return this.saldo;
 	}
 
 	public Integer getNumero() {
@@ -35,11 +39,11 @@ public class Conta {
 		this.senha = senha;
 	}
 
-	public Double getSaldo() {
+	protected Double getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(Double saldo) {
+	protected void setSaldo(Double saldo) {
 		this.saldo = saldo;
 	}
 

@@ -1,11 +1,12 @@
 package br.com.inter.modelo.principal;
 
 import br.com.inter.modelo.Cliente;
+import br.com.inter.modelo.ContaCorrente;
 
 public class ContaTest {
 
 	public static void main(String[] args) {
-		Conta c = new Conta();
+		Conta c = new ContaCorrente();
 		c.setSaldo(1000.00);
 		c.setAgencia(1);
 		c.setNumero(10481);
