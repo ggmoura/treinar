@@ -26,6 +26,8 @@ public abstract class Conta {
 	public void deposita(Double valor) {
 		this.saldo += valor;
 	}
+	
+	public abstract Boolean sacar(Double valor);
 
 	public Integer getNumero() {
 		return numero;

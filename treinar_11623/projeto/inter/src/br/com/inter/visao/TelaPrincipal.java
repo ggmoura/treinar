@@ -29,6 +29,15 @@ public class TelaPrincipal {
 				case 3:
 					depositar();
 					break;
+				case 4:
+					sacar();
+					break;
+				case 5:
+					cadastrarTaxaRendimento();
+					break;
+				case 6:
+					aplicarRendimento();
+					break;
 				case 0:
 					System.out.println("Valeu");
 					break;
@@ -41,6 +50,28 @@ public class TelaPrincipal {
 			}
 		} while (opcao != 0);
 
+	}
+
+	private void aplicarRendimento() {
+		if (conta instanceof ContaPoupanca) {
+			((ContaPoupanca)conta).render();
+		}
+	}
+
+	private void cadastrarTaxaRendimento() {
+		System.out.print("Informe a taxa de rendimento da poupança: ");
+		ContaPoupanca.setTaxaRendimento(teclado.nextFloat());
+	}
+
+	private void sacar() {
+		System.out.print("Informe o valor a ser sacado: ");
+		Double valor = teclado.nextDouble();
+		Boolean sacou = conta.sacar(valor);
+		if (sacou) {
+			System.out.println("Saque efetuado com sucesso!");
+		} else {
+			System.out.println("Saldo insuficiente!");
+		}
 	}
 
 	private void depositar() {
@@ -85,8 +116,6 @@ public class TelaPrincipal {
 
 	private void criarConta(ContaPoupanca poupanca) {
 		criarConta((Conta)poupanca);
-		System.out.print("Informe a taxa de rendimento da conta: ");
-		poupanca.setTaxaRendimento(teclado.nextInt());
 	}
 
 	private void criarConta(ContaCorrente corrente) {
@@ -120,6 +149,9 @@ public class TelaPrincipal {
 				"1 - Criar Conta\n\t" +
 				"2 - Exibir Saldo\n\t" +
 				"3 - Depositar\n\t" +
+				"4 - Sacar\n\t" +
+				"5 - Cadastrar Taxa Rendimento Poupança\n\t" +
+				"6 - Aplicar Rendimento\n\t" +
 				"0 - Sair\n=> ");
 	}
 
