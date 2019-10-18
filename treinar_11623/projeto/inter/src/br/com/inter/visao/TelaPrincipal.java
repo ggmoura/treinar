@@ -11,26 +11,29 @@ public class TelaPrincipal {
 	private Conta conta;
 
 	public void iniciar() {
-		imprimirMenu();
-		Integer opcao = teclado.nextInt();
-		while (opcao != 0) {
-			switch (opcao) {
-			case 1:
-				conta = criarConta();
-				break;
-			case 0:
-				System.out.println("Valeu");
-				break;
-			case 2:
-				exibirSaldo();
-				break;
-			default:
-				System.out.println("Opção inválida, tente novamente!");
-				break;
-			}
+		Integer opcao;
+		do {
 			imprimirMenu();
 			opcao = teclado.nextInt();
-		}
+			if (opcao != 0) {
+				switch (opcao) {
+				case 1:
+					conta = criarConta();
+					break;
+				case 2:
+					exibirSaldo();
+					break;
+				case 0:
+					System.out.println("Valeu");
+					break;
+				default:
+					System.out.println("Opção inválida, tente novamente!");
+					break;
+				}
+			} else {
+				System.out.println("Fim do programa");
+			}
+		} while (opcao != 0);
 
 	}
 
