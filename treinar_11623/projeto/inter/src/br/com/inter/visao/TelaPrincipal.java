@@ -7,12 +7,19 @@ import br.com.inter.modelo.ContaCorrente;
 import br.com.inter.modelo.ContaInvestimento;
 import br.com.inter.modelo.ContaPoupanca;
 import br.com.inter.modelo.principal.Conta;
+import br.com.inter.modelo.principal.IProdutoPagavel;
 import br.com.inter.modelo.principal.IProdutoRentavel;
 
 public class TelaPrincipal {
 
 	private Scanner teclado = new Scanner(System.in);
-	private Conta conta;
+	private Conta[] contas;
+	private Integer index;
+	
+	public TelaPrincipal() {
+		contas = new Conta[10];
+		index = 0;
+	}
 
 	public void iniciar() {
 		Integer opcao;
@@ -22,7 +29,7 @@ public class TelaPrincipal {
 			if (opcao != 0) {
 				switch (opcao) {
 				case 1:
-					conta = criarConta();
+					criarConta();
 					break;
 				case 2:
 					exibirSaldo();
@@ -39,6 +46,12 @@ public class TelaPrincipal {
 				case 6:
 					aplicarRendimento();
 					break;
+				case 7:
+					cobrarTarifa();
+					break;
+				case 8:
+					exibirDadosContas();
+					break;
 				case 0:
 					System.out.println("Valeu");
 					break;
@@ -53,9 +66,30 @@ public class TelaPrincipal {
 
 	}
 
+	private void exibirDadosContas() {
+		Conta conta = null;
+		for (int i = 0; i < contas.length; i++) {
+			if (contas[i] != null) {
+				conta = contas[i];
+				System.out.println("Conta: ".concat(conta.getNumero().toString()).concat(" Proprietári(a)o: ".concat(conta.getCliente().getNome())).concat(", Saldo: ").concat(conta.recuperarSaldo().toString()));
+			}
+		}
+	}
+
 	private void aplicarRendimento() {
-		if (conta instanceof IProdutoRentavel) {
-			((IProdutoRentavel)conta).render();
+		for (int i = 0; i < contas.length; i++) {
+			if (contas[i] != null && contas[i] instanceof IProdutoRentavel) {
+				((IProdutoRentavel)contas[i]).render();
+			}
+		}
+		
+	}
+	
+	private void cobrarTarifa() {
+		for (int i = 0; i < contas.length; i++) {
+			if (contas[i] != null && contas[i] instanceof IProdutoRentavel) {
+				((IProdutoPagavel)contas[i]).pagar();
+			}
 		}
 	}
 
@@ -65,50 +99,82 @@ public class TelaPrincipal {
 	}
 
 	private void sacar() {
-		System.out.print("Informe o valor a ser sacado: ");
-		Double valor = teclado.nextDouble();
-		Boolean sacou = conta.sacar(valor);
-		if (sacou) {
-			System.out.println("Saque efetuado com sucesso!");
+		Conta conta = recuperarConta();
+		if (conta != null) {
+			System.out.print("Informe o valor a ser sacado: ");
+			Double valor = teclado.nextDouble();
+			Boolean sacou = conta.sacar(valor);
+			if (sacou) {
+				System.out.println("Saque efetuado com sucesso!");
+			} else {
+				System.out.println("Saldo insuficiente!");
+			}
 		} else {
-			System.out.println("Saldo insuficiente!");
+			System.out.println("Conta inválida!");
 		}
 	}
 
 	private void depositar() {
-		System.out.print("Informe o valor a ser depositado: ");
-		Double valor = teclado.nextDouble();
-		conta.deposita(valor);
+		Conta conta = recuperarConta();
+		if (conta != null) {
+			System.out.print("Informe o valor a ser depositado: ");
+			Double valor = teclado.nextDouble();
+			conta.deposita(valor);
+		} else {
+			System.out.println("Conta inválida!");
+		}
 	}
 
 	private void exibirSaldo() {
-		System.out.println("Saldo da conta: " + conta.recuperarSaldo());
+		Conta conta = recuperarConta();
+		if (conta != null) {
+			System.out.println("Saldo da conta: " + conta.recuperarSaldo());
+		} else {
+			System.out.println("Conta inválida!");
+		}
 	}
 
-	private Conta criarConta() {
-		Conta c = null;
-		System.out.print(
-				"Digite\n\t" + "1 - Conta Corrente\n\t" + "2 - Conta Poupança\n\t" + "3 - Conta Investimento\n=> ");
-
-		Integer tipoConta = teclado.nextInt();
-		switch (tipoConta) {
-		case 1:
-			c = new ContaCorrente();
-			criarConta((ContaCorrente) c);
-			break;
-		case 2:
-			c = new ContaPoupanca();
-			criarConta((ContaPoupanca) c);
-			break;
-		case 3:
-			c = new ContaInvestimento();
-			criarConta((ContaInvestimento) c);
-			break;
-		default:
-			System.out.println("Tipo de conta inválido.");
-			break;
+	private Conta recuperarConta() {
+		System.out.print("Informe o numero da conta: ");
+		Integer numeroConta = teclado.nextInt();
+		Conta conta = null;
+		for (int i = 0; i < contas.length; i++) {
+			if (contas[i] != null && contas[i].getNumero().equals(numeroConta)) {
+				conta = contas[i];
+				break;
+			}
 		}
-		return c;
+		return conta;
+	}
+
+	private void criarConta() {
+		if (index < 10) {
+			Conta c = null;
+			System.out.print(
+					"Digite\n\t" + "1 - Conta Corrente\n\t" + "2 - Conta Poupança\n\t" + "3 - Conta Investimento\n=> ");
+			
+			Integer tipoConta = teclado.nextInt();
+			switch (tipoConta) {
+			case 1:
+				c = new ContaCorrente();
+				criarConta((ContaCorrente) c);
+				break;
+			case 2:
+				c = new ContaPoupanca();
+				criarConta((ContaPoupanca) c);
+				break;
+			case 3:
+				c = new ContaInvestimento();
+				criarConta((ContaInvestimento) c);
+				break;
+			default:
+				System.out.println("Tipo de conta inválido.");
+				break;
+			}
+			contas[index++] = c;
+		} else {
+			System.out.println("Não é possível criar mais contas");
+		}
 	}
 
 	private void criarConta(ContaInvestimento investimento) {
@@ -153,6 +219,8 @@ public class TelaPrincipal {
 				"4 - Sacar\n\t" +
 				"5 - Cadastrar Taxa Rendimento Poupança\n\t" +
 				"6 - Aplicar Rendimento\n\t" +
+				"7 - Cobrar Tarifa\n\t" +
+				"8 - Listar Dados Contas\n\t" +
 				"0 - Sair\n=> ");
 	}
 
