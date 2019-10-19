@@ -7,6 +7,7 @@ import br.com.inter.modelo.ContaCorrente;
 import br.com.inter.modelo.ContaInvestimento;
 import br.com.inter.modelo.ContaPoupanca;
 import br.com.inter.modelo.principal.Conta;
+import br.com.inter.modelo.principal.IProdutoRentavel;
 
 public class TelaPrincipal {
 
@@ -53,8 +54,8 @@ public class TelaPrincipal {
 	}
 
 	private void aplicarRendimento() {
-		if (conta instanceof ContaPoupanca) {
-			((ContaPoupanca)conta).render();
+		if (conta instanceof IProdutoRentavel) {
+			((IProdutoRentavel)conta).render();
 		}
 	}
 

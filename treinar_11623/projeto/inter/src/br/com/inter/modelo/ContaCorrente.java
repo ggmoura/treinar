@@ -1,8 +1,9 @@
 package br.com.inter.modelo;
 
 import br.com.inter.modelo.principal.Conta;
+import br.com.inter.modelo.principal.IProdutoPagavel;
 
-public class ContaCorrente extends Conta {
+public class ContaCorrente extends Conta implements IProdutoPagavel {
 
 	private Double limiteCredito;
 
@@ -33,6 +34,11 @@ public class ContaCorrente extends Conta {
 
 	public void setLimiteCredito(Double limiteCredito) {
 		this.limiteCredito = limiteCredito;
+	}
+
+	@Override
+	public void pagar() {
+		sacar(10.00);
 	}
 
 }
